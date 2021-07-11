@@ -149,7 +149,7 @@ setErr('');
           <Form id="form" >
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
-               User Id
+               user id
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control
