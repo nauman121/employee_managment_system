@@ -18,7 +18,7 @@ const initialFormState={
   email:'',
   phone_number:'',
    phone2:'',
-  role:'owner',
+  role:'hr',
   address:'',
   supervisor:'',
   picture:'',
@@ -83,8 +83,8 @@ const history=useHistory();
     setFormState({...formState,[e.target.name]:e.target.value});
   }
 const signUp=async ()=>{
-
-if(formState.username&&formState.full_name && formState.father_name && formState.cnic && formState.password &&formState.email &&formState.role &&formState.phone_number &&formState.salary &&formState.supervisor &&formState.address&&formState.phone2){
+  console.log(formState)
+if(formState.username&&formState.full_name && formState.father_name && formState.cnic && formState.password &&formState.email &&formState.role &&formState.phone_number &&formState.salary &&formState.address&&formState.phone2){
    Storage.put(store.filename,store.file)
   .then((data)=>{
 setStore({fileUrl:'',file:'',filename:''})
@@ -131,7 +131,7 @@ else
  setErr('Please fill the form completely');
  window.setTimeout(()=>{
 setErr('');
- },3000)
+ },5000)
 }
 }
  const {formType}=formState;

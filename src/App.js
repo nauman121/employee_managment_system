@@ -138,7 +138,7 @@ name.push(data.data.getEmployee.employee_name);
                   />
             
                   <input className="login-form-input"
-                   name='password' disabled={loading?"true":""} value={formState.password} type='password' onChange={onChange} placeholder='password'    
+                   name='password' disabled={loading?"true":""} value={formState.password} type='password' onChange={onChange} placeholder='password' 
                   />
                
                   <input className="login-form-input submitBtn"
