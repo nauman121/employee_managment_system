@@ -20,7 +20,7 @@ const initialFormState={
    phone2:'',
   role:'hr',
   address:'',
-  supervisor:'',
+  supervisor:'hr',
   picture:'',
   salary:'',
   company:'',
@@ -84,7 +84,7 @@ const history=useHistory();
   }
 const signUp=async ()=>{
   console.log(formState)
-if(formState.username&&formState.full_name && formState.father_name && formState.cnic && formState.password &&formState.email &&formState.role &&formState.phone_number &&formState.salary &&formState.address&&formState.phone2){
+if(formState.username&&formState.full_name && formState.father_name && formState.cnic && formState.password &&formState.email &&formState.role&&formState.supervisor  && formState.phone_number &&formState.salary &&formState.address&&formState.phone2){
    Storage.put(store.filename,store.file)
   .then((data)=>{
 setStore({fileUrl:'',file:'',filename:''})
