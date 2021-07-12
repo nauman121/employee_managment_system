@@ -128,7 +128,7 @@ name.push(data.data.getEmployee.employee_name);
             </div>
             <div id="title-div">
                
-              <h4 className="title">Sign in</h4>
+              <h4 className="title">Sign In</h4>
             </div>
 
             <div id="outer-login-form-div">
