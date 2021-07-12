@@ -31,7 +31,7 @@
     }
   },
   "function": {
-    "ems83569bdd": {
+    "ems6d7e9358": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",
@@ -46,22 +46,7 @@
         }
       ]
     },
-    "PostConformationTrigger": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "ems",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput"
-          ]
-        }
-      ]
-    },
-    "ems3d880d9a": {
+    "ems856af928": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda",

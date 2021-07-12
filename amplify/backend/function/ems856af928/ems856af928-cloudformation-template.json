@@ -63,13 +63,13 @@
             "FunctionName": {
                 "Fn::If": [
                     "ShouldNotCreateEnvResources",
-                    "ems83569bdd",
+                    "ems856af928",
                     {
 
                         "Fn::Join": [
                             "",
                             [
-                                "ems83569bdd",
+                                "ems856af928",
                                 "-",
                                 {
                                     "Ref": "env"
@@ -94,13 +94,13 @@
                 "RoleName": {
                     "Fn::If": [
                         "ShouldNotCreateEnvResources",
-                        "emsLambdaRolee762ca5a",
+                        "emsLambdaRole64b3013e",
                         {
 
                             "Fn::Join": [
                                 "",
                                 [
-                                    "emsLambdaRolee762ca5a",
+                                    "emsLambdaRole64b3013e",
                                     "-",
                                     {
                                         "Ref": "env"
