@@ -86,7 +86,7 @@ const signIn=async (e)=>{
     e.preventDefault();
    const {username,password} = formState;
        setLoading(true);
-       if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
+if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
 ){
          setFormState({...formState,formType:'addnew'})
        }
