@@ -65,7 +65,7 @@ document.title='Employee Managment System';
 roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor);  
 name.push(data.data.getEmployee.employee_name);
- if(data.data.getEmployee.company.toLowerCase()===''){
+ if(data.data.getEmployee.company.toLowerCase()==='dm2otm88udutr'){
     setFormState({...formState,formType:'signedIn'})
 }
 else
@@ -104,7 +104,7 @@ empSupervisor.push(data.data.getEmployee.supervisor);
 empSupervisor.push(data.data.getEmployee.supervisor);
 name.push(data.data.getEmployee.employee_name);
 // history.push(`/admin/index`);
-if(data.data.getEmployee.company.toLowerCase()===''){
+if(data.data.getEmployee.company.toLowerCase()==='dm2otm88udutr'){
     setFormState({...formState,formType:'signedIn'})
 }
 else
