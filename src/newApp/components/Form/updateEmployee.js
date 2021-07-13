@@ -62,10 +62,15 @@ React.useEffect(()=>{
   }
     }
 React.useEffect(()=>{
- const results = GetEmployee.filter(person =>
-      person.role==='lead'
-    )
-    // console.log(results);
+ const results = GetEmployee.filter(person =>{
+     if(person.role==='lead' && window.location.hostname.toLowerCase().includes(person.company.toLowerCase())){
+       return true
+     }
+     else
+     {
+       return false
+     }
+    })
     setSearchResults(results);
 },[GetEmployee])
 
@@ -102,22 +107,7 @@ Storage.put(store.filename,store.file)
         <div>
         <h1 id="role-form-title" className="m-2 p-3">Update Employee Details</h1>
         <div id="role-form-outer-div" className="mx-5 px-5">
-          <Form id="form" >
-            {/* <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-               Employee Id
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="Number"
-                  placeholder="Employee Id"
-                  value={employee.employee_id}
-                  onChange={(e)=>setEmployee({...employee,employee_id:e.target.value})}
-                  required
-                />
-              </Col>
-            </Form.Group> */}
-            <Form.Group as={Row}>
+          <Form id="form" ><Form.Group as={Row}>
               <Form.Label column sm={2}>
               user id
               </Form.Label>
@@ -284,6 +274,7 @@ Storage.put(store.filename,store.file)
                    
                   } 
                   <option value="hr">hr</option> 
+                  <option value="owner">owner</option> 
                 </Form.Control>
               </Col>
             </Form.Group>

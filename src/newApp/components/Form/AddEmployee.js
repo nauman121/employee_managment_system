@@ -69,10 +69,15 @@ React.useEffect(()=>{
   }
     }
 React.useEffect(()=>{
- const results = getEmployee.filter(person =>
-      person.role==='lead'
-    )
-    // console.log(results);
+ const results = getEmployee.filter(person =>{
+     if(person.role==='lead' && window.location.hostname.toLowerCase().includes(person.company.toLowerCase())){
+       return true
+     }
+     else
+     {
+       return false
+     }
+    })
     setSearchResults(results);
 },[getEmployee])
 
@@ -333,6 +338,7 @@ setErr('');
                    
                   } 
                   <option value="hr">hr</option> 
+                   <option value="owner">owner</option> 
                 </Form.Control>
               </Col>
             </Form.Group>
