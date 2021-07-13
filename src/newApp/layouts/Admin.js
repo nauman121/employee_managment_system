@@ -7,7 +7,8 @@ import {
   hr,
   emp,
   lead,
-  owner
+  owner,
+  manager
 } from "../views/routes.js";
 
 
@@ -188,6 +189,60 @@ if(role==="hr"){
         />
         <Switch>
           {getRoutes(hr)}
+          <Redirect from="*" to="/admin/index" />
+        </Switch>
+      </div>
+    </>
+  );
+      }
+if(role==="manager hr"){
+  const getRoutes = (manager) => {
+    return manager.map((prop, key) => {
+      if (prop.layout === "/admin" ) {
+        return (
+          <Route
+            path={prop.layout + prop.path}
+            component={prop.component}
+            key={key}
+          />
+        );
+        }
+       else {
+        return null;
+      }
+    });
+  };
+
+  const getBrandText = (path) => {
+    for (let i = 0; i < manager.length; i++) {
+      if (
+        props.location.pathname.indexOf(manager[i].layout + manager[i].path) !==
+        -1
+      ) {
+        return manager[i].name;
+      }
+    }
+    return "Brand";
+  };
+
+  return (
+    <>
+      <Sidebar
+        {...props}
+        routes={manager}
+        logo={{
+          innerLink: "/admin/index",
+          imgSrc: require("../../img/logo.png").default,
+          imgAlt: "...",
+        }}
+      />
+      <div className="main-content" ref={mainContent}>
+        <AdminNavbar
+          {...props}
+          brandText={getBrandText(props.location.pathname)}
+        />
+        <Switch>
+          {getRoutes(manager)}
           <Redirect from="*" to="/admin/index" />
         </Switch>
         {/* <Container fluid>
