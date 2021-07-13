@@ -13,8 +13,7 @@ const UpdateEmployee=()=> {
    const [GetEmployee,setGetEmployee]=React.useState([]);
  const [searchResults, setSearchResults] = React.useState([]);
  const history=useHistory();
-   const {id}=useParams();
-const [picture,setPicture]=React.useState('');   
+   const {id}=useParams();   
 const [store,setStore] = React.useState({fileUrl:'',file:'',filename:''});
 
 const handleChange=(e)=>{
