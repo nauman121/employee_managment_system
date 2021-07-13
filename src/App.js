@@ -33,8 +33,6 @@ const initialFormState={
 }
 
 const App = () => {
-
-// const history=useHistory();
   const [er,setEr]=React.useState([]);
   const [loading1,setLoading1]=React.useState(true);
   const [auth1,setAuth]=React.useState(false);
@@ -57,15 +55,14 @@ document.title='Employee Managment System';
    await Auth.currentAuthenticatedUser();  
    setUser(user);
    const info=await Auth.currentUserInfo();
-//  roleArr.push(info.attributes['custom:role']);
  id.push(info.attributes.sub); 
  const uId=info.attributes.sub;
  const data= await API.graphql(graphqlOperation(getEmployee,{id:uId}))
-//  const data=await API.graphql(graphqlOperation(getEmployee,{id:info.attributes.sub}))
 roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor);  
 name.push(data.data.getEmployee.employee_name);
- if(data.data.getEmployee.company.toLowerCase()==='dm2otm88udutr'){
+if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
+){
     setFormState({...formState,formType:'signedIn'})
 }
 else
@@ -89,7 +86,8 @@ const signIn=async (e)=>{
     e.preventDefault();
    const {username,password} = formState;
        setLoading(true);
-       if(username.toLowerCase()==='admin' && password.toLowerCase()==='admin'){
+       if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
+){
          setFormState({...formState,formType:'addnew'})
        }
        else{
