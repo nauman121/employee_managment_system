@@ -65,7 +65,14 @@ document.title='Employee Managment System';
 roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor);  
 name.push(data.data.getEmployee.employee_name);
- setFormState({...formState,formType:'signedIn'})
+ if(data.data.getEmployee.company.toLowerCase()===''){
+    setFormState({...formState,formType:'signedIn'})
+}
+else
+{
+  setEr({'errMsg':'User not Exist'});
+  setLoading(false);
+}
       }
     catch(err){
        setEr({'errMsg':err.message});
@@ -97,8 +104,14 @@ empSupervisor.push(data.data.getEmployee.supervisor);
 empSupervisor.push(data.data.getEmployee.supervisor);
 name.push(data.data.getEmployee.employee_name);
 // history.push(`/admin/index`);
+if(data.data.getEmployee.company.toLowerCase()===''){
     setFormState({...formState,formType:'signedIn'})
-
+}
+else
+{
+  setEr({'errMsg':'User not Exist'});
+  setLoading(false);
+}
       })
       .catch((err)=>{
         setEr({'errMsg':err.message});
