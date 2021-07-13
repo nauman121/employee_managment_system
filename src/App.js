@@ -8,8 +8,7 @@ import { css } from "@emotion/react";
 import { ScaleLoader } from "react-spinners";
 // import {useHistory} from 'react-router'
 import {getEmployee} from './graphql/queries'
-import AddEmployee from './newApp/components/Form/AddEmployee'
-
+import AdminForm from './newApp/components/Form/AdminForm'
 
 
 const override = css`
@@ -39,8 +38,6 @@ const App = () => {
     const [loading,setLoading]=React.useState(false);
 const [user,setUser]=useState(null);
   const [formState,setFormState]=useState(initialFormState);
-
-
 
   useEffect(()=>{
     checkUser();
@@ -81,7 +78,6 @@ else
     setFormState({...formState,[e.target.name]:e.target.value});
   }
 
-
 const signIn=async (e)=>{
     e.preventDefault();
    const {username,password} = formState;
@@ -92,7 +88,6 @@ const signIn=async (e)=>{
        else{
       Auth.signIn(username,password).then(async(res)=>{
 const info=await Auth.currentUserInfo();
-//  roleArr.push(info.attributes['custom:role']);
  id.push(info.attributes.sub);
  const data=await API.graphql(graphqlOperation(getEmployee,{id:info.attributes.sub}))
 console.log(data.data.getEmployee.role);
@@ -100,7 +95,6 @@ roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor);
 empSupervisor.push(data.data.getEmployee.supervisor);
 name.push(data.data.getEmployee.employee_name);
-// history.push(`/admin/index`);
 if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
  || data.data.getEmployee.role==='manager hr' || data.data.getEmployee.role==='owner'){
     setFormState({...formState,formType:'signedIn'})
@@ -121,7 +115,7 @@ else
   const {formType}=formState;
  return (
      <div>
-   {loading1?( <p style={{margin:'20% 50%'}}>  Loading.... </p>):
+   {loading1?( <p style={{margin:'20% 50%'}}>Loading.... </p>):
   ( <>
     {formType==='signedIn' && (
     <div>
@@ -178,7 +172,7 @@ else
 }
 {
   formType==='addnew' && (
-    <AddEmployee/>
+    <AdminForm/>
   )}
 </>)
 }
