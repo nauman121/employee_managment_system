@@ -86,8 +86,7 @@ const signIn=async (e)=>{
     e.preventDefault();
    const {username,password} = formState;
        setLoading(true);
-if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
-){
+       if(username.toLowerCase()==='admin' && password.toLowerCase()==='admin'){
          setFormState({...formState,formType:'addnew'})
        }
        else{
@@ -102,7 +101,8 @@ empSupervisor.push(data.data.getEmployee.supervisor);
 empSupervisor.push(data.data.getEmployee.supervisor);
 name.push(data.data.getEmployee.employee_name);
 // history.push(`/admin/index`);
-if(data.data.getEmployee.company.toLowerCase()==='dm2otm88udutr'){
+if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
+){
     setFormState({...formState,formType:'signedIn'})
 }
 else
