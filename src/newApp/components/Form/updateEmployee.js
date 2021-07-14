@@ -62,7 +62,7 @@ React.useEffect(()=>{
     }
 React.useEffect(()=>{
  const results = GetEmployee.filter(person =>{
-     if(person.role==='lead' && window.location.hostname.toLowerCase().includes(person.company.toLowerCase())){
+     if(person.role==='lead' || person.role==='hr'  && window.location.hostname.toLowerCase().includes(person.company.toLowerCase())){
        return true
      }
      else
@@ -272,7 +272,6 @@ Storage.put(store.filename,store.file)
                     })
                    
                   } 
-                  <option value="hr">hr</option> 
                   <option value="owner">owner</option> 
                 </Form.Control>
               </Col>

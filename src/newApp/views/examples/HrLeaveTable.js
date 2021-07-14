@@ -19,10 +19,13 @@ import {
   Container,
   Row,
 } from "reactstrap";
+import {name} from '../../../App';
 // core components
 import Header from "../../components/Headers/Header.js";
 
 const HrLeaveTables = () => {
+
+  const hrName=name[name.length-1];
 const [leaveResults,setLeaveResults]=React.useState([]);
 
   const history=useHistory();
@@ -48,7 +51,7 @@ if(!leave.employee.company){
   return false
 }
 else{
-   if(window.location.hostname.toLowerCase().includes(leave.employee.company.toLowerCase()) && leave.Lead_Approval==='approved' || leave.supervisor==='hr'){
+   if(window.location.hostname.toLowerCase().includes(leave.employee.company.toLowerCase()) && leave.Lead_Approval==='approved' || leave.supervisor===hrName){
     return true
    }
    else{
