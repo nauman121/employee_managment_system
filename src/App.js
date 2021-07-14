@@ -65,12 +65,17 @@ if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company
 else
 {
   setEr({'errMsg':'User not Exist'});
+ window.setTimeout(()=>{
+setEr({'errMsg':''});
+ },5000);
   setLoading(false);
 }
       }
     catch(err){
        setEr({'errMsg':err.message});
-     
+      window.setTimeout(()=>{
+setEr({'errMsg':''});
+ },5000);
     }
   }
   const onChange=(e)=>{
@@ -102,11 +107,17 @@ if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company
 else
 {
   setEr({'errMsg':'User not Exist'});
+   window.setTimeout(()=>{
+setEr({'errMsg':''});
+ },5000);
   setLoading(false);
 }
       })
       .catch((err)=>{
         setEr({'errMsg':err.message});
+         window.setTimeout(()=>{
+setEr({'errMsg':''});
+ },5000);
         setLoading(false)
     })
   }
