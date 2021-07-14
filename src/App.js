@@ -57,7 +57,8 @@ document.title='Employee Managment System';
  const uId=info.attributes.sub;
  const data= await API.graphql(graphqlOperation(getEmployee,{id:uId}))
 roleArr.push(data.data.getEmployee.role);
-empSupervisor.push(data.data.getEmployee.supervisor);  
+empSupervisor.push(data.data.getEmployee.supervisor); 
+emp_full_name.push(data.data.getEmployee.full_name); 
 name.push(data.data.getEmployee.employee_name);
 if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase() || data.data.getEmployee.role==='manager hr' || data.data.getEmployee.role==='owner')
 ){
