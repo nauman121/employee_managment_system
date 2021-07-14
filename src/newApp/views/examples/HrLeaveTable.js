@@ -44,13 +44,17 @@ fetchData()
 React.useEffect(()=>{
  const result= getLeaves.filter((leave)=>
  {
+if(!leave){
+  return false
+}
+else{
    if(window.location.hostname.toLowerCase().includes(leave.employee.company.toLowerCase()) && leave.Lead_Approval==='approved' || leave.supervisor==='hr'){
     return true
    }
    else{
    return false
    }
-  })
+  }})
  setLeaveResults(result);
 },[getLeaves]);
 
