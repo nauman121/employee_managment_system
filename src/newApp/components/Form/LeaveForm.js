@@ -13,7 +13,7 @@ const LeaveForm=()=> {
   console.log('super',superv);
   const userId=id[id.length-1];
     const history=useHistory();
-const [leave,setLeave]=React.useState({employee_id:userId,leave:'full leave',from:'',to:'',Hr_Approval:'pending',Lead_Approval:'pending',remarks:'N/A',type:'sick',supervisor:superv})
+const [leave,setLeave]=React.useState({employee_id:userId,leave:'half leave',from:'',to:'',Hr_Approval:'pending',Lead_Approval:'pending',remarks:'N/A',type:'sick',supervisor:superv})
 
  const creatLeave=async ()=>{
 
@@ -56,7 +56,6 @@ const clickHandler=async (e)=>{
              </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control as="select" onChange={(e)=>setLeave({...leave,leave:e.target.value})} required>
-                   {/* <option value="admin">Admin</option>  */}
                    <option value="half leave">Half Leave</option>
                   <option value="full leave">Full Leave</option>
                 </Form.Control>
@@ -125,7 +124,6 @@ const clickHandler=async (e)=>{
                   type="text"
                   placeholder="Hr remarks"
                   value={leave.remarks}
-                  // onChange={(e)=>setLeave({...leave,remarks:e.target.value})}
                   required
                   disabled
                 />
@@ -137,7 +135,6 @@ const clickHandler=async (e)=>{
              </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control as="select" onChange={(e)=>setLeave({...leave,type:e.target.value})} required>
-                   {/* <option value="admin">Admin</option>  */}
                    <option value="sick">Sick</option>
                   <option value="urgent work">Urgent Work</option>
                 </Form.Control>
