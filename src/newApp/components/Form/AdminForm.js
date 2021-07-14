@@ -7,6 +7,8 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import {API,graphqlOperation} from "aws-amplify";
 import {listEmployees} from '../../../graphql/queries'
+import App from '../../../App'
+
 Amplify.configure(awsconfig);
 const initialFormState={
   employee_Id:'id_lads',
@@ -126,7 +128,7 @@ username:formState.username,
   UserID.push(data.userSub);
 
 window.setTimeout(()=>{
-history.push('/');
+ setFormState({...formState,formType:'submitted'})
 },2000)
 }
   ).catch((err)=>setErr(err.message));
@@ -142,7 +144,7 @@ setErr('');
  const {formType}=formState;
 
  const cancelHandler=()=>{
-   history.push('/');
+   setFormState({...formState,formType:'submitted'})
  }
 
     return (<>
@@ -504,6 +506,11 @@ setErr('');
       </div>
       </>
          )
+}
+{
+  formType==='submitted'&&(<><div>
+    <App/>
+    </div></>)
 }
 </div>
    </> )

@@ -44,7 +44,7 @@ fetchData()
 React.useEffect(()=>{
  const result= getLeaves.filter((leave)=>
  {
-if(!leave){
+if(!leave.employee.company){
   return false
 }
 else{
