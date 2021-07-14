@@ -300,7 +300,6 @@ const clickHandler=()=>{
                           <p>{employee.blood_group}</p>
                         </FormGroup>
                         </Col>
-                        
                         <Col lg="3" xs='6'>
                       <FormGroup>
                           <label
@@ -310,6 +309,17 @@ const clickHandler=()=>{
                             Designation
                           </label>
                           <p>{employee.role}</p>
+                        </FormGroup>
+                        </Col>
+                        <Col lg="3" xs='6'>
+                      <FormGroup>
+                          <label
+                            className="form-control-label"
+                            htmlFor="input-last-name"
+                          >
+                            Supervisor
+                          </label>
+                          <p>{employee.supervisor}</p>
                         </FormGroup>
                         </Col>
                     </Row>
