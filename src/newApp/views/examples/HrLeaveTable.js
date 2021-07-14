@@ -19,13 +19,13 @@ import {
   Container,
   Row,
 } from "reactstrap";
-import {name} from '../../../App';
+import {emp_full_name} from '../../../App';
 // core components
 import Header from "../../components/Headers/Header.js";
 
 const HrLeaveTables = () => {
 
-  const hrName=name[name.length-1];
+  const hrName=emp_full_name[emp_full_name.length-1];
 const [leaveResults,setLeaveResults]=React.useState([]);
 
   const history=useHistory();

@@ -25,6 +25,7 @@ Amplify.configure(awsconfig);
 export const roleArr=[''];
 export const empSupervisor=['']
 export const name=[''];
+export const emp_full_name=[''];
 const initialFormState={
   username:'',
   password:'',
@@ -98,7 +99,7 @@ const info=await Auth.currentUserInfo();
 console.log(data.data.getEmployee.role);
 roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor);
-empSupervisor.push(data.data.getEmployee.supervisor);
+emp_full_name.push(data.data.getEmployee.full_name);
 name.push(data.data.getEmployee.employee_name);
 if(window.location.hostname.toLowerCase().includes(data.data.getEmployee.company.toLowerCase())
  || data.data.getEmployee.role==='manager hr' || data.data.getEmployee.role==='owner'){
