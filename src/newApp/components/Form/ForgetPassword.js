@@ -15,7 +15,7 @@ const ForgetPassword=()=>{
 
     const clickHandler=(e)=>{
       e.preventDefault();
-    Auth.forgotPassword(userId)
+  Auth.forgotPassword(userId)
     .then(data => console.log(data))
     .catch(err => {
   setErr(err.message)
@@ -47,7 +47,7 @@ const ForgetPassword=()=>{
                   type="text"
                   name='username'
                   placeholder="user id"
-                  value={formState.username}
+                  value={userId}
                   onChange={onChange}
                   required
                 />
