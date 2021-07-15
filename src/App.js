@@ -61,7 +61,7 @@ roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor); 
 emp_full_name.push(data.data.getEmployee.full_name); 
 name.push(data.data.getEmployee.employee_name);
-if(data.data.getEmployee.company.toLowerCase()==='lads technology' || data.data.getEmployee.role==='manager hr' || data.data.getEmployee.role==='owner')
+if(data.data.getEmployee.company.toLowerCase()==='lads technology' || data.data.getEmployee.role==='manager hr' || data.data.getEmployee.role==='owner'
 ){
     setFormState({...formState,formType:'signedIn'})
 }

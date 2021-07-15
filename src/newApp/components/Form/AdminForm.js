@@ -25,7 +25,7 @@ const initialFormState={
   supervisor:'owner',
   picture:'',
   salary:'',
-  company:'',
+  company:'Lads Technology',
   blood_group:'',
   transport_mode:'',
   vichel_no:'',
@@ -72,7 +72,7 @@ React.useEffect(()=>{
     }
 React.useEffect(()=>{
  const results = getEmployee.filter(person =>{
-     if(person.role==='lead' || person.role==='hr' && window.location.hostname.toLowerCase().includes(person.company.toLowerCase())){
+     if(person.role==='lead' && person.company.toLowerCase()==='lads technology' || person.role==='hr' && person.company.toLowerCase()==='lads technology'){
        return true
      }
      else
@@ -358,7 +358,7 @@ setErr('');
                   name='company'
                   placeholder="company name"
                   value={formState.company}
-                   onChange={onChange}
+                  //  onChange={onChange}
                   required
                 />
               </Col>
