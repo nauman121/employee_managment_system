@@ -64,7 +64,7 @@ setUser({...user,[e.target.name]:e.target.value})
               </Form.Label>
               <Col sm={10} className="form-input">
                 <Form.Control
-                  type="text"
+                  type="password"
                   name='new_password'
                   placeholder="new password"
                   value={user.new_password}
