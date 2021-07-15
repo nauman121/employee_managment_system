@@ -1,9 +1,10 @@
 import React from 'react'
 import { Auth } from 'aws-amplify';
 import { Form, Button, Col, Row } from "react-bootstrap";
-
+import ResetPassword from './ResetPassword';
 
 const ForgetPassword=()=>{
+    const [state,setState]=React.useState('forget');
     const [userId,setuserId]=React.useState('');
     const [err,setErr]=React.useState('');
     const onChange=(e)=>{
@@ -16,7 +17,12 @@ const ForgetPassword=()=>{
     const clickHandler=(e)=>{
       e.preventDefault();
   Auth.forgotPassword(userId)
-    .then(data => console.log(data))
+    .then(data =>{
+         console.log(data)
+         window.setTimeout(()=>{
+          setState('newforget');
+         },2000)
+    })
     .catch(err => {
   setErr(err.message)
    window.setTimeout(()=>{
@@ -24,17 +30,10 @@ const ForgetPassword=()=>{
    },5000)
     });
     }
-// Collect confirmation code and new password, then
-// Auth.forgotPasswordSubmit(username, code, new_password)
-//     .then(data => console.log(data))
-//     .catch(err => {
-//           setErr(err.message)
-//    window.setTimeout(()=>{
-// setErr('')
-//    },5000)
-//     });
 
     return (<>
+    {
+        state==='forget' && (<>
     <h1 id="role-form-title" className="m-2 p-3">Add User Id</h1>
         <div id="role-form-outer-div" className="mx-5 px-5">
     <Form id="form" >
@@ -63,6 +62,13 @@ const ForgetPassword=()=>{
             </div>
     </Form>
     </div>
+    </>)
+}
+{
+state==='newforget' && (<>
+<ResetPassword/>
+</>)
+}
     </>)
 
 }
