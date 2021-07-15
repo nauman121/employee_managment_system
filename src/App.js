@@ -158,7 +158,7 @@ setEr({'errMsg':''});
                   <input className="login-form-input"
                    name='password' disabled={loading?"true":""} value={formState.password} type='password' onChange={onChange} placeholder='password' 
                   />
-               {/* <a onClick={()=> setFormState({...formState,formType:'forgetPassword'})}>Forget Password ?</a> */}
+               {/* <a onClick={()=> setFormState({...formState,formType:'forgetPassword'})}>Forget Password h</a> */}
                   <input className="login-form-input submitBtn"
                     type="submit"
                     value="Sign in"
