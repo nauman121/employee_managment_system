@@ -195,7 +195,7 @@ if(role==="hr"){
     </>
   );
       }
-if(role==="manager hr"){
+if(role==="hr manager"){
   const getRoutes = (manager) => {
     return manager.map((prop, key) => {
       if (prop.layout === "/admin" ) {
