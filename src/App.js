@@ -190,7 +190,7 @@ setEr({'errMsg':''});
   )
   }
 {
-  formType==='addnew' && (
+  formType==='forgetPassword' && (
     <ForgetPassword/>
   )}
 </>)
