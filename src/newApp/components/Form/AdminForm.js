@@ -360,6 +360,7 @@ setErr('');
                   value={formState.company}
                   //onChange={onChange}
                   required
+                  disabled
                 />
               </Col>
             </Form.Group>

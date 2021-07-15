@@ -23,7 +23,22 @@ body {
 
 #logo-div {
   width: 50%;
+  height: 50%;
+  border-radius: 50%;
   margin: 0 auto;
+  position: relative;
+}
+#logo-div ::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  background: url("./img/logo.png");
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
 }
 
 #title-div {
