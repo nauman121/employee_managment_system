@@ -98,13 +98,12 @@ const signIn=async (e)=>{
 const info=await Auth.currentUserInfo();
  id.push(info.attributes.sub);
  const data=await API.graphql(graphqlOperation(getEmployee,{id:info.attributes.sub}))
-console.log(data.data.getEmployee.role);
 roleArr.push(data.data.getEmployee.role);
 empSupervisor.push(data.data.getEmployee.supervisor);
 emp_full_name.push(data.data.getEmployee.full_name);
 name.push(data.data.getEmployee.employee_name);
 if(data.data.getEmployee.company.toLowerCase()==='lads technology'
- || data.data.getEmployee.role==='manager hr' || data.data.getEmployee.role==='owner'){
+ || data.data.getEmployee.role.toLowerCase()==='manager hr' || data.data.getEmployee.role.toLowerCase()==='owner'){
     setFormState({...formState,formType:'signedIn'})
 }
 else
