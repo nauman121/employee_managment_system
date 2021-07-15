@@ -60,7 +60,7 @@ React.useEffect(()=>{
     },[]);
 React.useEffect(()=>{
 const results = getEmployee.filter((person) =>{
-   if( window.location.hostname.toLowerCase().includes(person.company.toLowerCase())){
+   if(person.company.toLowerCase()==='lads technology' ){
      return true
    }
    else{

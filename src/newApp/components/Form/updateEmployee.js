@@ -285,8 +285,9 @@ Storage.put(store.filename,store.file)
                   type="text"
                   placeholder="company"
                   value={employee.company}
-                  onChange={(e)=>setEmployee({...employee,company:e.target.value})}
+                  // onChange={(e)=>setEmployee({...employee,company:e.target.value})}
                   required
+                  disabled
                 />
               </Col>
          </Form.Group>
