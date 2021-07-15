@@ -358,7 +358,7 @@ setErr('');
                   name='company'
                   placeholder="company name"
                   value={formState.company}
-                  //  onChange={onChange}
+                  //onChange={onChange}
                   required
                 />
               </Col>
