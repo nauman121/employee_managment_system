@@ -70,7 +70,7 @@ React.useEffect(()=>{
     }
 React.useEffect(()=>{
  const results = getEmployee.filter(person =>
-      person.role.toLowerCase()==='lead'
+      person.role.toLowerCase()==='lead' || person.role.toLowerCase()==='hr' || person.role.toLowerCase()==='hr manager'
 )
     setSearchResults(results);
     const res1= getEmployee.filter(person =>
