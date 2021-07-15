@@ -128,7 +128,7 @@ username:formState.username,
   UserID.push(data.userSub);
 
 window.setTimeout(()=>{
- setFormState({...formState,formType:'submitted'})
+ window.location.reload();
 },2000)
 }
   ).catch((err)=>{
@@ -149,7 +149,7 @@ setErr('');
  const {formType}=formState;
 
  const cancelHandler=()=>{
-   setFormState({...formState,formType:'submitted'})
+  window.location.reload();
  }
 
     return (<>
@@ -510,11 +510,6 @@ setErr('');
       </div>
       </>
          )
-}
-{
-  formType==='submitted'&&(<><div>
-    <App/>
-    </div></>)
 }
 </div>
    </> )
