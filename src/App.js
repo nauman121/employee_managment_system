@@ -143,7 +143,7 @@ setEr({'errMsg':''});
         <div className="container">
           <div id="main-outer-div">
             <div id="logo-div">
-              {/* <img id="logo-img" src={Logo} alt="" /> */}
+              <img id="logo-img" src={Logo} alt="" />
             </div>
             <div id="title-div">
                
