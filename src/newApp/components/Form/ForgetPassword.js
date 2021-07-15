@@ -1,3 +1,4 @@
+import React from 'react'
 import { Auth } from 'aws-amplify';
 import { Form, Button, Col, Row } from "react-bootstrap";
 
