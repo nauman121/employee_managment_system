@@ -36,7 +36,7 @@ import {id} from '../../../App'
 import {emp_full_name} from '../../../App'
 
 const LeadEmp = () => {
-  const history=useHistory();
+const history=useHistory();
 const userId=id[id.length-1];
 const fullName=emp_full_name[emp_full_name.length-1];
 const [GetEmployee,setGetEmployee]=React.useState([]);
@@ -96,7 +96,7 @@ const clickHandler=(id)=>{
                     <th scope="col">Email</th>
                     <th scope="col">Phone1</th>
                     <th scope="col">Phone2</th>
-                     <th scope="col">Address</th>
+                    <th scope="col">Address</th>
                     <th scope="col">Role</th>
                     <th scope="col">Supervisor</th>
                     <th scope="col">Salary</th>
@@ -151,7 +151,7 @@ const clickHandler=(id)=>{
                     <td style={{fontSize:'12px'}}>{employee.company}</td>
                     <td style={{fontSize:'12px'}}>{employee.blood_group}</td>
                     <td style={{fontSize:'12px'}}>{employee.transport_mode}</td>
-                     <td style={{fontSize:'12px'}}>{employee.vichel_no}</td>
+                    <td style={{fontSize:'12px'}}>{employee.vichel_no}</td>
                     <td style={{fontSize:'12px'}}>{employee.dob}</td>
                      <td style={{fontSize:'12px'}}>{employee.doj}</td>
                     <td style={{fontSize:'12px'}}>{employee.end_date}</td>

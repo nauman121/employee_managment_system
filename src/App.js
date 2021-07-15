@@ -9,6 +9,7 @@ import { ScaleLoader } from "react-spinners";
 // import {useHistory} from 'react-router'
 import {getEmployee} from './graphql/queries'
 import AdminForm from './newApp/components/Form/AdminForm'
+import ForgetPassword from './newApp/components/Form/ForgetPassword'
 
 
 const override = css`
@@ -158,7 +159,7 @@ setEr({'errMsg':''});
                   <input className="login-form-input"
                    name='password' disabled={loading?"true":""} value={formState.password} type='password' onChange={onChange} placeholder='password' 
                   />
-               
+               <a onClick={(e)=> setFormState({...formState,formType:'forgetPassword'})}>Forget Password ?</a>
                   <input className="login-form-input submitBtn"
                     type="submit"
                     value="Sign in"
@@ -186,6 +187,11 @@ setEr({'errMsg':''});
 {
   formType==='addnew' && (
     <AdminForm/>
+  )
+  }
+{
+  formType==='addnew' && (
+    <ForgetPassword/>
   )}
 </>)
 }

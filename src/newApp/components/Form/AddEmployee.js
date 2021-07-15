@@ -129,7 +129,13 @@ window.setTimeout(()=>{
 history.push(`/editjobhistory/${UserID[UserID.length-1]}`);
 },2000)
 }
-  ).catch((err)=>setErr(err.message));
+  ).catch((err)=>
+  {
+    setErr(err.message)
+   window.setTimeout(()=>{
+setErr('')
+   },5000)
+  });
 }
 else
 {
