@@ -8,6 +8,7 @@ import '../../../Login.css'
 import {useParams} from 'react-router'
 
 function Warning() {
+  const [loading,setLoading]=React.useState(false);
      const [Err,setErr]=React.useState(false);
 const id=useParams().id;
     const history=useHistory();
@@ -28,7 +29,11 @@ const clickHandler=async (e)=>{
       e.preventDefault();
       if(data.employee_id && data.date && data.type && data.description){
         creatLeave();
-         history.push('/admin/team');   
+        setLoading(true);
+         window.setTimeout(()=>{
+         setLoading(false);
+  history.push('/admin/team');
+  },3000)
       }
       else{
          setErr(true);
@@ -86,12 +91,12 @@ const clickHandler=async (e)=>{
             <div className='px-5'  style={{display:'flex',flexDirection:'row',gap:'3vw',marginLeft:'13vw'}}>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                 <Button  onClick={clickHandler}>Submit</Button>
+                 <Button disabled={loading?'true':''}  onClick={clickHandler}>Submit</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button className='bg-light' disabled={loading?'true':''}  onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             </div>

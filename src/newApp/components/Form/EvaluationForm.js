@@ -7,6 +7,7 @@ import {useParams} from 'react-router'
 import {name} from '../../../App'
 import {useHistory} from 'react-router'
 const EvaluationForm=()=> {
+  const [loading,setLoading]=React.useState(false);
   const [er,setEr] = React.useState('');
   const reviewer_name=name[name.length-1];
   const userId=useParams().id;
@@ -35,7 +36,9 @@ const clickHandler=(e)=>{
   e.preventDefault();
   if( data.reviewer_title  && data.one && data.two && data.three && data.four && data.five && data.six && data.seven && data.eight && data.nine && data.ten && data.eleven && data.twelve && data.thirteen && data.fourteen && data.fifteen && data.sixteen && data.seventeen && data.eighteen && data.nineteen && data.twenty && data.twentyone && data.twentytwo){
   createEva();
+  setLoading(true);
   setTimeout(()=>{
+    setLoading(false);
  history.push('/admin/team');
   },2000)
  
@@ -1490,12 +1493,12 @@ history.push('/admin/team');
               <div className='px-5'  style={{display:'flex',flexDirection:'row',gap:'3vw',marginLeft:'13vw'}}>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                <Button  onClick={clickHandler}>Submit</Button>
+                <Button disabled={loading?'true':''} onClick={clickHandler}>Submit</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button className='bg-light' disabled={loading?'true':''} onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             <p className="alert">{er}</p>

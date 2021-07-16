@@ -8,6 +8,7 @@ import {useHistory} from 'react-router'
 
 
 const EditLeadLeave=()=> {
+  const [loading,setLoading]=React.useState(false);
    const history=useHistory();
    const {id}=useParams();
    
@@ -33,7 +34,12 @@ console.log('error',error);
  const clickHandler=(e)=>{
       e.preventDefault();
       updateUser();
-      history.push('/admin/LeadEmpTable');
+      setLoading(true);
+      window.setTimeout(()=>{
+      setLoading(false);
+ history.push('/admin/LeadEmpTable');
+    },3000)
+     
       // window.location.reload();
  }
    const updateUser=async ()=>{
@@ -186,12 +192,12 @@ const cancelHandler=()=>{
             <div className='px-5'  style={{display:'flex',flexDirection:'row',gap:'3vw',marginLeft:'13vw'}}>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                 <Button  onClick={clickHandler}>Update</Button>
+                 <Button disabled={loading?'true':''}  onClick={clickHandler}>Update</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button className='bg-light' disabled={loading?'true':''}   onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             </div>

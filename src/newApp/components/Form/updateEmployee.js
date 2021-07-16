@@ -10,6 +10,7 @@ import 'react-phone-input-2/lib/style.css'
 import {listEmployees} from '../../../graphql/queries'
 
 const UpdateEmployee=()=> {
+  const [loading,setLoading]=React.useState(false);
    const [GetEmployee,setGetEmployee]=React.useState([]);
  const [searchResults, setSearchResults] = React.useState([]);
  const history=useHistory();
@@ -80,7 +81,9 @@ Storage.put(store.filename,store.file)
     console.log('successfully updated');
   })
   .catch((err)=>console.log(err));
+  setLoading(true);
   window.setTimeout(()=>{
+    setLoading(false);
          updateUser();
   history.push('/admin/team');
   
@@ -418,12 +421,12 @@ Storage.put(store.filename,store.file)
             <div className='px-5'  style={{display:'flex',flexDirection:'row',gap:'3vw',marginLeft:'13vw'}}>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                <Button  onClick={clickHandler}>Update</Button>
+                <Button disabled={loading?'true':''}  onClick={clickHandler}>Update</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button disabled={loading?'true':''} className='bg-light'  onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             </div>

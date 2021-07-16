@@ -8,6 +8,7 @@ import {useHistory} from 'react-router'
 
 
 const EditJobHistory=()=> {
+  const [loading,setLoading]=React.useState(false);
    const history=useHistory();
    const {id,jobId}=useParams();
 const [job,setJob]=React.useState({id:'',strat_date:'',end_Date:'',designation:'',organization:''});
@@ -29,7 +30,12 @@ console.log('error',error);
  const clickHandler=(e)=>{
       e.preventDefault();
       updateUser();
-      history.push(`/editjobhistory/${id}`);
+      setLoading(true);
+      window.setTimeout(()=>{
+          history.push(`/editjobhistory/${id}`);
+          setLoading(false);
+      },3000)
+      
       // window.location.reload();
  }
    const updateUser=async ()=>{
@@ -51,21 +57,6 @@ console.log('error',error);
         <h1 id="role-form-title" className="m-2 p-3">Update Details</h1>
         <div id="role-form-outer-div" className="mx-5 px-5">
           <Form id="form" >
-              {/* <Form.Group as={Row}>
-              <Form.Label column sm={2}>
-               Leave Id
-              </Form.Label>
-              <Col sm={10} className="form-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Employee Id"
-                  value={leave.id}
-                  // onChange={(e)=>setLeave({...leave,id:parseInt(e.target.value)})}
-                  disabled
-                  required
-                />
-              </Col>
-            </Form.Group> */}
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
                Start Date
@@ -127,12 +118,12 @@ console.log('error',error);
             <div className='px-5'   style={{display:'flex',flexDirection:'row',gap:'3vw',marginLeft:'13vw'}}>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                 <Button  onClick={clickHandler}>Update</Button>
+                 <Button disabled={loading?'true':''} onClick={clickHandler}>Update</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button className='bg-light' disabled={loading?'true':''} onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             </div>

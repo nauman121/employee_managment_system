@@ -40,7 +40,7 @@ const initialFormState={
 }
 
 const AdminForm=()=> {
-
+const [loading,setLoading]=React.useState(false);
   const [getEmployee,setGetEmployee]=React.useState([]);
  const [searchResults, setSearchResults] = React.useState([]);
   const [Err,setErr] =React.useState('');
@@ -126,8 +126,10 @@ username:formState.username,
   }
 }).then((data)=>{
   UserID.push(data.userSub);
+setLoading(true);
 
 window.setTimeout(()=>{
+  setLoading(false);
  window.location.reload();
 },2000)
 }
@@ -498,12 +500,12 @@ setErr('');
                <p className="alert">{Err}</p>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                <Button  onClick={signUp}>Submit</Button>
+                <Button disabled={loading?'true':''}  onClick={signUp}>Submit</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button disabled={loading?'true':''}  className='bg-light'  onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             </div>

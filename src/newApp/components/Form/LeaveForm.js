@@ -8,6 +8,7 @@ import { empSupervisor } from '../../../App';
 import '../../../Login.css'
 
 const LeaveForm=()=> {
+  const [loading,setLoading]=React.useState(false);
     const [Err,setErr]=React.useState(false);
   const superv = empSupervisor[empSupervisor.length-1] ;
   console.log('super',superv);
@@ -31,7 +32,11 @@ const clickHandler=async (e)=>{
       if(leave.from && leave.to){
         if(leave.from<=leave.to ){
         creatLeave();
-         history.push('/admin/Empleaves');   
+        setLoading(true);
+        window.setTimeout(()=>{
+        setLoading(false);
+         history.push('/admin/Empleaves');  
+        },3000) 
        }
     else{
     setErr(true);
@@ -143,12 +148,12 @@ const clickHandler=async (e)=>{
             <div className='px-5'  style={{display:'flex',flexDirection:'row',gap:'3vw',marginLeft:'13vw'}}>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}}>
-                 <Button  onClick={clickHandler}>Submit</Button>
+                 <Button disabled={loading?'true':''}  onClick={clickHandler}>Submit</Button>
               </Col>
             </Form.Group>
             <Form.Group as={Row} id="form-submit-button" >
               <Col sm={{ span: 10, offset:2}} >
-                 <Button className='bg-light'  onClick={cancelHandler}>Cancel</Button>
+                 <Button className='bg-light' disabled={loading?'true':''}  onClick={cancelHandler}>Cancel</Button>
               </Col>
             </Form.Group>
             </div>
