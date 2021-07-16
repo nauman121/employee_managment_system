@@ -19,6 +19,8 @@ import EvaluationForm from './components/Form/EvaluationForm'
 import ViewEvaluationForm from './components/Form/ViewEvaluationForm'
 import UserProfile from './views/examples/UserProfile'
 import Warning from './components/Form/Warning'
+import ChangingPassword from "./components/Form/ChangingPassword";
+
 
 function Index() {
     // id.push(useParams().id);
@@ -37,6 +39,7 @@ function Index() {
       <Route exact path='/leadLeaveEdit/:id'><EditLeadLeave/></Route>
       <Route exact path = '/user/:id'><UserProfile/></Route>
       <Route exact path='/:id'><UpdateEmployee/></Route>
+       <Route exact path ='/change/changepassword'><ChangingPassword/></Route>
       <Route  path="/admin" render={(props) =>( <AdminLayout {...props} />)} />
       <Route  path="/auth" render={(props) => <AuthLayout {...props} />} />
       <Redirect from='/' to='/admin/index'/>
