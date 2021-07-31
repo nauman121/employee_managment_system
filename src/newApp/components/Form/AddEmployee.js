@@ -161,9 +161,11 @@ setErr('');
           <Form id="form" >
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                user id
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='username'
@@ -176,9 +178,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Email
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="email"
                   name='email'
@@ -191,9 +195,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Password
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="password"
                   placeholder="Password"
@@ -206,9 +212,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
               Full Name
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='full_name'
@@ -221,9 +229,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                Father Name
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='father_name'
@@ -236,9 +246,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
              CNIC
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='cnic'
@@ -251,9 +263,11 @@ setErr('');
             </Form.Group>
              <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                Employee Address
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='address'
@@ -278,9 +292,11 @@ setErr('');
              </Form.Group>
             <Form.Group as={Row} >
               <Form.Label column sm={2}>
+                <br/><br/>
                 Role
              </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control as="select" onChange={(e)=>setFormState({...formState,role:e.target.value})} required>
                    {/* <option value="admin">Admin</option>  */}
                    <option value="owner">Owner</option>
@@ -294,9 +310,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Phone#1
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <PhoneInput
   country={'pk'}
   value={formState.phone_number}
@@ -334,9 +352,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row} >
               <Form.Label column sm={2}>
+                <br/><br/>
                 supervisor
              </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control as="select" onChange={(e)=>{setFormState({...formState,supervisor:e.target.value});}} required>
                   {
                     searchResults.map((lead)=>{
@@ -350,9 +370,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                Company Name
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='company'
@@ -366,9 +388,11 @@ setErr('');
             </Form.Group>
            <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Date Of Birth
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="date"
                   name='dob'
@@ -381,9 +405,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Last Degree
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='last_degree'
@@ -396,9 +422,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Institute
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="text"
                   name='institute'
@@ -411,9 +439,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row}>
               <Form.Label column sm={2}>
+                <br/><br/>
                 Date of joining
               </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control
                   type="date"
                   name='doj'
@@ -426,9 +456,11 @@ setErr('');
             </Form.Group>
             <Form.Group as={Row} >
               <Form.Label column sm={2}>
+                <br/><br/>
                 Status
              </Form.Label>
               <Col sm={10} className="form-input">
+                <p style={{fontSize:'12px'}}>*required</p>
                 <Form.Control as="select" value={formState.status} onChange={(e)=>setFormState({...formState,status:e.target.value})}required>
                    <option value="active">Active</option>
                    <option value="left">Left</option>    
