@@ -208,7 +208,7 @@ username:emp.username,
 setLoading(true);
 window.setTimeout(()=>{
   setLoading(false);
-history.push(`/editjobhistory/${UserID[UserID.length-1]}`);
+history.push('/admin/team');
 },2000)
 }
   ).catch((err)=>
