@@ -51,7 +51,7 @@ if(!leave.employee.company){
   return false
 }
 else{
-   if(window.location.hostname.toLowerCase().includes(leave.employee.company.toLowerCase()) && leave.Lead_Approval==='approved' || leave.supervisor===hrName){
+   if(leave.employee.company.toLowerCase()==='lads technology' && leave.Lead_Approval==='approved' || leave.supervisor===hrName){
     return true
    }
    else{
