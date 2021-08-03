@@ -163,7 +163,7 @@ setCanz(res2.length);
                           <img
                             alt="..."
                             style={{height:'100%',width:'100%' , objectFit:'fit'}}
-                            src={`https://ems3425b0d312534fc887d7f1545129bee9134248-dev.s3.ap-southeast-1.amazonaws.com/public/${team.employee_pic}`}/>
+                            src={`https://ems3425b0d312534fc887d7f1545129bee970119-production.s3.eu-west-1.amazonaws.com/public/${team.employee_pic}`}/>
                          </a>
                         <Media>
                         </Media>

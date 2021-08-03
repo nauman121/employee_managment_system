@@ -72,7 +72,7 @@ const classes = useStyles();
           <Col className="order-xl-2 mb-5 mb-xl-0" xl="12" xs='12'> 
             <Card className="bg-secondary shadow">
               <div className="card-profile-image "  >
-                      <img style={{height:'150px',width:'150px' , objectFit:'fit'}} src={`https://ems3425b0d312534fc887d7f1545129bee9134248-dev.s3.ap-southeast-1.amazonaws.com/public/${employee.employee_pic}`} alt="..."  className="rounded-circle " />
+                      <img style={{height:'150px',width:'150px' , objectFit:'fit'}} src={`https://ems3425b0d312534fc887d7f1545129bee970119-production.s3.eu-west-1.amazonaws.com/public/${employee.employee_pic}`} alt="..."  className="rounded-circle " />
                   </div>
               <CardHeader className="bg-white border-0">
                 
