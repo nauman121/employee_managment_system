@@ -44,7 +44,7 @@ const data=await API.graphql(graphqlOperation(getEmployee,{id:id[id.length-1]}))
               <DropdownToggle className="pr-0" nav>
                 <Media className="align-items-center">
                   <span className="avatar avatar-sm rounded-circle">
-                    <img src={`https://ems3425b0d312534fc887d7f1545129bee9134248-dev.s3.ap-southeast-1.amazonaws.com/public/${data.pic}`}  style={{height:'100%'}} alt="..." />
+                    <img src={`https://ems3425b0d312534fc887d7f1545129bee970119-production.s3.eu-west-1.amazonaws.com/public/${data.pic}`}  style={{height:'100%'}} alt="..." />
                   </span>
                   <Media className="ml-2 d-none d-lg-block">
                      {/* <span className="mb-0 text-sm font-weight-bold">
