@@ -178,7 +178,7 @@ const paginate=(pageNumber)=>setCurrentPage(pageNumber);
                 </thead>
                 <tbody>
                   {
-                 searchResults.map((employee,i)=>{
+                currentPosts.map((employee,i)=>{
               return (<>
               
                <tr>
