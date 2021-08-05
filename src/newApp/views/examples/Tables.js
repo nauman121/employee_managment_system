@@ -1,4 +1,5 @@
 import React from "react";
+import {FaArrowsAltV} from 'react-icons/fa';
 // reactstrap components
 import {
   Badge,
@@ -34,37 +35,37 @@ import {useHistory} from 'react-router'
 
 
 const Tables = () => {
-
-const [searchTerm, setSearchTerm] = React.useState("");
- const [searchResults, setSearchResults] = React.useState([]);
-React.useEffect(()=>{
- const results = getEmployee.filter((person) =>{
-   if( person.full_name.toLowerCase().includes(searchTerm) || person.supervisor.toLowerCase().includes(searchTerm)){
-     return true
-   }
-   else{
-     return false
-   }
-     
- }
-    );
-    setSearchResults(results);
-},[searchTerm])
-
-
   const history=useHistory();
   const [getEmployee,setGetEmployee]=React.useState([]);
+const [currentPage,setCurrentPage]=React.useState(1);
+const [postsPerPage]=React.useState(5);
+const [searchTerm, setSearchTerm] = React.useState("");
+ const [searchResults, setSearchResults] = React.useState([]);
+
 React.useEffect(()=>{
        fetchData();
-      
     },[]);
 
     const fetchData= async ()=>{
   try{
  const EmployeeData = await API.graphql(graphqlOperation(listEmployees));
  const EmpData = EmployeeData.data.listEmployees.items;
+
+ //sorting table by full name
+
+  const compare=( a, b )=> {
+  if ( a.full_name < b.full_name ){
+    return -1;
+  }
+  if ( a.full_name > b.full_name ){
+    return 1;
+  }
+  return 0;
+}
+EmpData.sort(compare);
+//Adding employee records in state hook
  setGetEmployee(EmpData);
-  setSearchResults(EmpData);
+ setSearchResults(EmpData);
   }
   catch(error){
     console.log('error on fetching data',error);
@@ -80,13 +81,51 @@ history.push(`/editjobhistory/${id}`);
 const handleWarnig =(id)=>{
 history.push(`/warning/${id}`);
 }
-
-
   const clickHandler=(e)=>{
     e.preventDefault();
     history.push('/addemployee');
   }
 
+  React.useEffect(()=>{
+ const results = getEmployee.filter((person) =>{
+   if( person.full_name.toLowerCase().includes(searchTerm) || person.supervisor.toLowerCase().includes(searchTerm)){
+     return true
+   }
+   else{
+     return false
+   }
+     
+ }
+    );
+setSearchResults(results);
+},[searchTerm])
+//Get Current Posts
+const indexOfLastPost=currentPage * postsPerPage;
+const indexOfFirstPost=indexOfLastPost-postsPerPage;
+const currentPosts=searchResults.slice(indexOfFirstPost,indexOfLastPost);
+
+  const [isSorted,setIsSorted]=React.useState(false);
+//Reversing table onClick
+const sortTable=()=>{
+if(isSorted){
+searchResults.reverse();
+setIsSorted(false);
+}
+else{
+  searchResults.reverse();
+  setIsSorted(true);
+}
+  
+}
+
+//pagination
+
+const pageNumbers=[];
+const totalPosts=searchResults.length;
+for(let i=1;i<=Math.ceil(totalPosts/postsPerPage);i++){
+  pageNumbers.push(i);
+}
+const paginate=(pageNumber)=>setCurrentPage(pageNumber);
 
   return (
     <>
@@ -115,7 +154,7 @@ history.push(`/warning/${id}`);
                     <th scope="col">Status</th>
                     <th scope="col">Picture</th>
                     <th scope="col">user id</th>
-                     <th scope="col">Full Name</th>
+                     <th scope="col" onClick={()=>sortTable()}>Full Name <FaArrowsAltV/></th>
                       <th scope="col">Father Name</th>
                        <th scope="col">CNIC</th>
                     <th scope="col">Email</th>
@@ -148,8 +187,7 @@ history.push(`/warning/${id}`);
                       <Media className="align-items-center">
                          <a
                           className="avatar rounded-circle mr-3"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
+                          href={`/user/${employee.id}`}
                           style={{height:'30px',width:'30px'}}
                         >
                            <img
@@ -166,7 +204,7 @@ history.push(`/warning/${id}`);
                        {employee.employee_name} 
                     </td>
                      <td style={{fontSize:'12px',textTransform:'capitalize'}}>
-                       <a href={`/user/${employee.id}`}>{employee.full_name}</a>
+                       {employee.full_name}
                     </td>
                      <td style={{fontSize:'12px'}}>
                         {employee.father_name}
@@ -232,6 +270,22 @@ history.push(`/warning/${id}`);
                 </tbody>
               </Table>
               <CardFooter className="py-4">
+                <nav>
+                  <ul className='pagination'>
+                    {
+                      pageNumbers.map((number)=>{
+                       return <li key={number} className='page-item'>
+                          <a onClick={(e)=>{
+                            e.preventDefault();
+                            paginate(number);
+                            }} href="!#" className='page-link'>
+                          {number}
+                          </a>
+                        </li>
+                      })
+                    }
+                  </ul>
+                </nav>
               </CardFooter>
             </Card>
           </div>
