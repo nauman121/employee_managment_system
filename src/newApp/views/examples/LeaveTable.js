@@ -41,7 +41,6 @@ return 1;
  data.sort(compare);
  data.reverse();
  setGetLeaves(data);
- setSearchResults(data);
   }
   catch(error){
     console.log('error on fetching data',error);
@@ -62,6 +61,7 @@ React.useEffect(()=>{
    }
   })
  setLeaveResults(result);
+  setSearchResults(result);
 },[getLeaves]);
 React.useEffect(()=>{
  const results = getLeaves.filter((leave) =>{
