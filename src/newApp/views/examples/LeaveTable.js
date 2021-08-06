@@ -21,7 +21,8 @@ import Header from "../../components/Headers/Header.js";
 
 const LeaveTables = () => {
 const [leaveResults,setLeaveResults]=React.useState([]);
-
+const [searchTerm, setSearchTerm] = React.useState("");
+ const [searchResults, setSearchResults] = React.useState([]);
   const history=useHistory();
      const [getLeaves,setGetLeaves]=React.useState([]);
   const fetchData= async ()=>{
@@ -40,6 +41,7 @@ return 1;
  data.sort(compare);
  data.reverse();
  setGetLeaves(data);
+ setSearchResults(data);
   }
   catch(error){
     console.log('error on fetching data',error);
@@ -52,7 +54,6 @@ fetchData()
 React.useEffect(()=>{
  const result= getLeaves.filter((leave)=>
  {
-   console.log(leave.supervisor);
    if(leave.Lead_Approval==='approved' || leave.supervisor==='hr'){
          return true
    }
@@ -62,7 +63,19 @@ React.useEffect(()=>{
   })
  setLeaveResults(result);
 },[getLeaves]);
-
+React.useEffect(()=>{
+ const results = getLeaves.filter((leave) =>{
+   if(leave.employee.full_name.toLowerCase().includes(searchTerm)){
+     return true
+   }
+   else{
+     return false
+   }
+     
+ }
+    );
+setSearchResults(results);
+},[searchTerm])
 const handleEdit=(id)=>{
 history.push(`/empLeave/${id}`)
 }
@@ -77,7 +90,7 @@ history.push(`/empLeave/${id}`)
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
-                <h3 className="mb-0">Leaves Record</h3>
+                  <Input placeholder="Search by employee name"  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value.toLowerCase())}  />
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">

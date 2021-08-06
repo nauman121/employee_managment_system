@@ -11,19 +11,14 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
   // Progress,
   Table,
   Container,
   Row,
   InputGroupText,
-  Form,
   InputGroup,
   InputGroupAddon,
   Input,
-  FormGroup
     // UncontrolledTooltip,
 } from "reactstrap";
 import 'react-bootstrap';
