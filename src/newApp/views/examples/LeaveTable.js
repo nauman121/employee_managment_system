@@ -4,6 +4,7 @@ import {listLeaves} from '../../../graphql/queries'
 import {useHistory} from 'react-router'
 // reactstrap components
 import {
+  Input,
   Badge,
   Card,
   CardHeader,
