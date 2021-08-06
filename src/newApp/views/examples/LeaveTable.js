@@ -12,9 +12,6 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
   Table,
   Container,
   Row,
@@ -30,7 +27,18 @@ const [leaveResults,setLeaveResults]=React.useState([]);
   const fetchData= async ()=>{
   try{
  const LeavesData = await API.graphql(graphqlOperation(listLeaves))
- const data = LeavesData.data.listLeaves.items
+ const data = LeavesData.data.listLeaves.items;
+ const compare=(a,b)=>{
+   if(a.from<b.from){
+     return -1;
+   }
+   if(a.from>b.from){
+return 1;
+   }
+   return 0;
+ }
+ data.sort(compare);
+ data.reverse();
  setGetLeaves(data);
   }
   catch(error){
