@@ -111,7 +111,7 @@ history.push(`/empLeave/${id}`)
                 </thead>
                 <tbody>
                   {
-                leaveResults.map((leave,i)=>{
+                searchResults.map((leave,i)=>{
               return (<>   
                <tr key={i}>
                     <td>{leave.employee.full_name}</td>
