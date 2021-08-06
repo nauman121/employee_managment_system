@@ -82,6 +82,9 @@ history.push(`/empLeave/${id}`)
 
   return (
     <>
+    {
+      searchResults?(
+        <>
       <Header />
       {/* Page content */}
       <Container className="mt--5" fluid>
@@ -95,8 +98,6 @@ history.push(`/empLeave/${id}`)
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
-                    {/* <th scope="col">Leave Id</th> */}
-                    {/* <th scope="col">Employee Id</th> */}
                     <th scope="col">Employee Name</th>
                     <th scope="col">Leave</th>
                     <th scope="col">From</th>
@@ -113,8 +114,6 @@ history.push(`/empLeave/${id}`)
                 leaveResults.map((leave,i)=>{
               return (<>   
                <tr key={i}>
-                    {/* <td>{leave.id}</td> */}
-                    {/* <td>{leave.employee_id}</td> */}
                     <td>{leave.employee.full_name}</td>
                     <td>{leave.leave}</td>
                     <td>
@@ -147,13 +146,6 @@ history.push(`/empLeave/${id}`)
                           >
                              Edit
                           </DropdownItem>
-
-                          {/* <DropdownItem
-                            href="#pablo"
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            Delete
-                          </DropdownItem> */}
                         </DropdownMenu>
                       </UncontrolledDropdown>
                     </td>
@@ -165,61 +157,92 @@ history.push(`/empLeave/${id}`)
                 </tbody>
               </Table>
               <CardFooter className="py-4">
-                {/* <nav aria-label="..."> */}
-                  {/* <Pagination
-                    className="pagination justify-content-end mb-0"
-                    listClassName="justify-content-end mb-0"
-                  >
-                    <PaginationItem className="disabled">
-                      <PaginationLink
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                        tabIndex="-1"
-                      >
-                        <i className="fas fa-angle-left" />
-                        <span className="sr-only">Previous</span>
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem className="active">
-                      <PaginationLink
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        1
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        2 <span className="sr-only">(current)</span>
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        3
-                      </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                      <PaginationLink
-                        href="#pablo"
-                        onClick={(e) => e.preventDefault()}
-                      >
-                        <i className="fas fa-angle-right" />
-                        <span className="sr-only">Next</span>
-                      </PaginationLink>
-                    </PaginationItem>
-                  </Pagination> */}
-                {/* </nav> */}
               </CardFooter>
             </Card>
           </div>
         </Row>   
       </Container>
+    </>):(
+      <>
+      <Header />
+      {/* Page content */}
+      <Container className="mt--5" fluid>
+        {/* Table */}
+        <Row>
+          <div className="col">
+            <Card className="shadow">
+              <CardHeader className="border-0">
+                  <Input placeholder="Search by employee name"  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value.toLowerCase())}  />
+              </CardHeader>
+              <Table className="align-items-center table-flush" responsive>
+                <thead className="thead-light">
+                  <tr>
+                    <th scope="col">Employee Name</th>
+                    <th scope="col">Leave</th>
+                    <th scope="col">From</th>
+                    <th scope="col">To</th>
+                    <th scope="col">Hr Approval</th>
+                     <th scope="col">Lead Approval</th>
+                    <th scope="col">Remarks</th>
+                     <th scope="col">Type</th>
+                    <th scope="col" />
+                  </tr>
+                </thead>
+                <tbody>
+                  {
+                leaveResults.map((leave,i)=>{
+              return (<>   
+               <tr key={i}>
+                    <td>{leave.employee.full_name}</td>
+                    <td>{leave.leave}</td>
+                    <td>
+                      <Badge color="" className="badge-dot mr-4">
+                        <i className="bg-warning" />
+                        {leave.from}
+                      </Badge>
+                    </td>
+                    <td>{leave.to}</td>
+                    <td>{leave.Hr_Approval}</td>
+                    <td>{leave.Lead_Approval}</td>
+                    <td>{leave.remarks}</td>
+                    <td>{leave.type}</td>
+                    <td className="text-right">
+                      <UncontrolledDropdown>
+                        <DropdownToggle
+                          className="btn-icon-only text-light"
+                          href="#pablo"
+                          role="button"
+                          size="sm"
+                          color=""
+                          onClick={(e) => e.preventDefault()}
+                        >
+                          <i className="fas fa-ellipsis-v" />
+                        </DropdownToggle>
+                        <DropdownMenu className="dropdown-menu-arrow" right>
+                          <DropdownItem
+                            href="#pablo"
+                            onClick={(e) => handleEdit(leave.id)}
+                          >
+                             Edit
+                          </DropdownItem>
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                    </td>
+                  </tr>
+                  </>
+              )
+                 })
+                     }
+                </tbody>
+              </Table>
+              <CardFooter className="py-4">
+              </CardFooter>
+            </Card>
+          </div>
+        </Row>   
+      </Container>
+    </>)
+    }
     </>
   );
 };
