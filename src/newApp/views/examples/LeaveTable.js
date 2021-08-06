@@ -62,10 +62,9 @@ React.useEffect(()=>{
    }
   })
  setLeaveResults(result);
-  setSearchResults(result);
 },[getLeaves]);
 React.useEffect(()=>{
- const results = getLeaves.filter((leave) =>{
+ const results = leaveResults.filter((leave) =>{
    if(leave.employee.full_name.toLowerCase().includes(searchTerm)){
      return true
    }
@@ -84,7 +83,7 @@ history.push(`/empLeave/${id}`)
   return (
     <>
     {
-      searchResults?(
+      searchTerm?(
         <>
       <Header />
       {/* Page content */}
