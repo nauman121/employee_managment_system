@@ -7,6 +7,9 @@ import {
   Input,
   Badge,
   Card,
+  InputGroup,
+  InputGroupAddon,
+  InputGroupText,
   CardHeader,
   CardFooter,
   DropdownMenu,
@@ -92,8 +95,15 @@ history.push(`/empLeave/${id}`)
         <Row>
           <div className="col">
             <Card className="shadow">
-              <CardHeader className="border-0">
-                  <Input placeholder="Search by employee name"  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value.toLowerCase())}  />
+              <CardHeader className="border-0" style={{display:'flex',flexDirection:'row',gap:'2rem'}}>
+                  <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText >
+                    <i className="fas fa-search" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input placeholder="Search by employee name "  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value.toLowerCase())}  />
+              </InputGroup>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
@@ -172,7 +182,14 @@ history.push(`/empLeave/${id}`)
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
-                  <Input placeholder="Search by employee name"  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value.toLowerCase())}  />
+                  <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
+                <InputGroupAddon addonType="prepend">
+                  <InputGroupText >
+                    <i className="fas fa-search" />
+                  </InputGroupText>
+                </InputGroupAddon>
+                <Input placeholder="Search by employee name "  type="text" value={searchTerm} onChange={(e)=>setSearchTerm(e.target.value.toLowerCase())}  />
+              </InputGroup>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
