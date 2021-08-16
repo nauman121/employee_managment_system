@@ -14,7 +14,7 @@ const LeaveForm=()=> {
   console.log('super',superv);
   const userId=id[id.length-1];
     const history=useHistory();
-const [leave,setLeave]=React.useState({employee_id:userId,leave:'half leave',from:'',to:'',Hr_Approval:'pending',Lead_Approval:'pending',remarks:'N/A',type:'sick',supervisor:superv,alert:'false'})
+const [leave,setLeave]=React.useState({employee_id:userId,leave:'half leave',from:'',to:'',Hr_Approval:'pending',Lead_Approval:'pending',remarks:'N/A',type:'sick',alert:'false',supervisor:superv})
 
  const creatLeave=async ()=>{
 
