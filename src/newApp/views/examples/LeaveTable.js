@@ -36,6 +36,7 @@ const LeaveTables = () => {
   //useState hooks used in this program
   const [leaveResults, setLeaveResults] = React.useState([]);
   const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchDate, setSearchDate] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
   const [getLeaves, setGetLeaves] = React.useState([]);
   const [empName, setEmpName] = React.useState("");
@@ -147,7 +148,7 @@ if(role==='lead'){
   //useEffect hook for filtering leave data on the basis of search
   React.useEffect(() => {
     const results = leaveResults.filter((leave) => {
-      if (leave.employee.full_name.toLowerCase().includes(searchTerm)) {
+      if (leave.employee.full_name.toLowerCase().includes(searchTerm) ) {
         return true;
       } else {
         return false;
@@ -155,6 +156,17 @@ if(role==='lead'){
     });
     setSearchResults(results);
   }, [searchTerm]);
+  //useEffect hook for filtering leave data on the basis of search Date
+  React.useEffect(() => {
+    const results = leaveResults.filter((leave) => {
+      if (leave.employee.full_name.toLowerCase().includes(searchTerm) && leave.from.toLowerCase().includes(searchDate)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    setSearchResults(results);
+  }, [searchDate]);
   //useEffect hook for notification on new leave arrival
   React.useEffect(() => {
     if(role==='hr manager'){
@@ -238,7 +250,7 @@ if(role==='lead'){
               <div className="col">
                 <Card className="shadow">
                   <CardHeader className="border-0">
-                    <CardHeader className="border-0">
+                    <CardHeader className="border-0" style={{display:'flex',flexDirection:'row',gap:'0.2rem'}}>
                       <InputGroup
                         className="input-group-alternative"
                         style={{
@@ -257,6 +269,27 @@ if(role==='lead'){
                           value={searchTerm}
                           onChange={(e) =>
                             setSearchTerm(e.target.value.toLowerCase())
+                          }
+                        />
+                      </InputGroup>
+                       <InputGroup
+                        className="input-group-alternative"
+                        style={{
+                          width: "30vw",
+                          boxShadow: "1px 1px 2px lightGray",
+                        }}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="fas fa-search" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          placeholder="yyyy-mm"
+                          type="text"
+                          value={searchDate}
+                          onChange={(e) =>
+                            setSearchDate(e.target.value.toLowerCase())
                           }
                         />
                       </InputGroup>
@@ -341,7 +374,7 @@ if(role==='lead'){
               <div className="col">
                 <Card className="shadow">
                   <CardHeader className="border-0">
-                    <CardHeader className="border-0">
+                    <CardHeader className="border-0" style={{display:'flex',flexDirection:'row',gap:'0.2rem'}}>
                       <InputGroup
                         className="input-group-alternative"
                         style={{
@@ -360,6 +393,27 @@ if(role==='lead'){
                           value={searchTerm}
                           onChange={(e) =>
                             setSearchTerm(e.target.value.toLowerCase())
+                          }
+                        />
+                      </InputGroup>
+                       <InputGroup
+                        className="input-group-alternative"
+                        style={{
+                          width: "30vw",
+                          boxShadow: "1px 1px 2px lightGray",
+                        }}
+                      >
+                        <InputGroupAddon addonType="prepend">
+                          <InputGroupText>
+                            <i className="fas fa-search" />
+                          </InputGroupText>
+                        </InputGroupAddon>
+                        <Input
+                          placeholder="yyyy-mm"
+                          type="text"
+                          value={searchDate}
+                          onChange={(e) =>
+                            setSearchDate(e.target.value.toLowerCase())
                           }
                         />
                       </InputGroup>
