@@ -39,7 +39,7 @@ type Leave @model @key(name: "byEmployee", fields: ["employee_id"]) {
   Hr_Approval: String!
   remarks: String!
   type: String!
-  alert:Boolean!
+  alert: String!
   employee: Employee @connection(fields: ["employee_id"])
 }
 type Job @model @key(name: "byEmployee", fields: ["employee_id"]) {
