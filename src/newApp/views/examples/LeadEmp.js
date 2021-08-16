@@ -122,8 +122,7 @@ const clickHandler=(id)=>{
                       <Media className="align-items-center">
                         <a
                           className="avatar rounded-circle mr-3"
-                          href="#pablo"
-                          onClick={(e) => e.preventDefault()}
+                         href={`/user/${employee.id}`}
                           style={{height:'30px',width:'30px'}}
                         >
                           <img
@@ -137,7 +136,7 @@ const clickHandler=(id)=>{
                     </th> 
                     <td style={{fontSize:'12px'}}>{employee.employee_name}</td>
                     <td style={{fontSize:'12px'}}>
-                       <a href={`/user/${employee.id}`}>{employee.full_name}</a>
+                      {employee.full_name}
                     </td>
                     <td style={{fontSize:'12px'}}>{employee.father_name}</td>
                     <td style={{fontSize:'12px'}}>{employee.cnic}</td>

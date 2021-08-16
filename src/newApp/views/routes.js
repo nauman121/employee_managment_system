@@ -1,12 +1,11 @@
 import Profile from "./examples/Profile.js";
 import Tables from "./examples/Tables.js";
 import LeaveTables from './examples/LeaveTable'
-import LeadLeaveTable from './examples/LeadLeaveTable'
 import LeaveOfEmployee from './examples/LeaveOfEmployee'
 import LeadEmp from './examples/LeadEmp'
 import OwnerTeam from './examples/OwnerTeam'
 import HrEmp from './examples/HrEmp'
-import HrLeaveTable from './examples/HrLeaveTable'
+
   export var owner= [
   {
     path: "/index",
@@ -43,7 +42,7 @@ import HrLeaveTable from './examples/HrLeaveTable'
     path: "/leaves",
     name: "Leaves",
     icon: "ni ni-bullet-list-67 text-red",
-    component: HrLeaveTable,
+    component: LeaveTables,
     layout: "/admin",
   }
 ];
@@ -105,7 +104,7 @@ export var lead = [
     path: "/LeadEmpTable",
     name: "Employee Leaves",
     icon: "ni ni-bullet-list-67 text-red",
-    component: LeadLeaveTable,
+    component: LeaveTables,
     layout: "/admin",
   }
   ,
