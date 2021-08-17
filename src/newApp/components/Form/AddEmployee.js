@@ -8,7 +8,6 @@ import 'react-phone-input-2/lib/style.css'
 import { API, graphqlOperation } from "aws-amplify";
 import { listEmployees } from '../../../graphql/queries'
 import XLSX from 'xlsx';
-// import '../../../Login.css';
 
 Amplify.configure(awsconfig);
 const initialFormState = {
@@ -347,7 +346,6 @@ const AddEmployee = () => {
                 </Form.Label>
                 <Col sm={4} className="form-input">
                   <Form.Control as="select" onChange={(e) => setFormState({ ...formState, role: e.target.value })} required>
-                    {/* <option value="admin">Admin</option>  */}
                     <option value="owner">Owner</option>
                     <option value="hr">HR</option>
                     <option value="hr manager">HR Manager</option>

@@ -6,10 +6,8 @@ import './Login.css'
 import Logo from "./img/logo.png";
 import { css } from "@emotion/react";
 import { ScaleLoader } from "react-spinners";
-// import {useHistory} from 'react-router'
 import {getEmployee} from './graphql/queries'
 import AdminForm from './newApp/components/Form/AdminForm'
-import ForgetPassword from './newApp/components/Form/ForgetPassword'
 
 
 const override = css`
@@ -21,8 +19,7 @@ const override = css`
 
 
 Amplify.configure(awsconfig);
-
- export const id=[''];
+export const id=[''];
 export const roleArr=[''];
 export const empSupervisor=['']
 export const name=[''];
@@ -32,7 +29,6 @@ const initialFormState={
   password:'',
   formType:'signIn'
 }
-
 const App = () => {
   const [er,setEr]=React.useState([]);
   const [loading1,setLoading1]=React.useState(true);
@@ -40,7 +36,6 @@ const App = () => {
     const [loading,setLoading]=React.useState(false);
 const [user,setUser]=useState(null);
   const [formState,setFormState]=useState(initialFormState);
-
   useEffect(()=>{
     checkUser();
 window.setTimeout(()=>{
@@ -48,7 +43,6 @@ setLoading1(false);
 },2500)
 document.title='Employee Managment System';
   },[])
-
   const checkUser=async ()=>{ 
     try{
    await Auth.currentAuthenticatedUser();  
@@ -85,13 +79,12 @@ setEr({'errMsg':''});
     e.persist();
     setFormState({...formState,[e.target.name]:e.target.value});
   }
-
 const signIn=async (e)=>{
     e.preventDefault();
    const {username,password} = formState;
        setLoading(true);
        if(username.toLowerCase()==='admin' && password.toLowerCase()==='admin'){
-         setFormState({...formState,formType:'addnew'})
+         setFormState({username:'',password:'',formType:'addnew'})
        }
        else{
       Auth.signIn(username,password).then(async(res)=>{
@@ -104,7 +97,7 @@ emp_full_name.push(data.data.getEmployee.full_name);
 name.push(data.data.getEmployee.employee_name);
 if(data.data.getEmployee.company.toLowerCase()==='lads technology'
  || data.data.getEmployee.role.toLowerCase()==='hr manager' || data.data.getEmployee.role.toLowerCase()==='owner'){
-    setFormState({...formState,formType:'signedIn'})
+    setFormState({username:'',password:'',formType:'signedIn'})
 }
 else
 {
@@ -158,7 +151,6 @@ setEr({'errMsg':''});
                   <input className="login-form-input"
                    name='password' disabled={loading?"true":""} value={formState.password} type='password' onChange={onChange} placeholder='password' 
                   />
-               {/* <a onClick={()=> setFormState({...formState,formType:'forgetPassword'})}>Forget Password h</a> */}
                   <input className="login-form-input submitBtn"
                     type="submit"
                     value="Sign in"
@@ -188,10 +180,6 @@ setEr({'errMsg':''});
     <AdminForm/>
   )
   }
-{/* {
-  formType==='forgetPassword' && (
-    <ForgetPassword/>
-  )} */}
 </>)
 }
   </div>)

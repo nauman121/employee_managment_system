@@ -1,6 +1,5 @@
 import React from "react";
 import {Auth} from "aws-amplify";
-// reactstrap components
 import {
   Badge,
   Card,
@@ -14,7 +13,6 @@ import {
   Pagination,
   PaginationItem,
   PaginationLink,
-  // Progress,
   Table,
   Container,
   Row,
@@ -24,30 +22,24 @@ import {
   InputGroupAddon,
   Input,
   FormGroup
-    // UncontrolledTooltip,
 } from "reactstrap";
 import 'react-bootstrap';
 // core components
 import Header from "../../components/Headers/Header";
  import {API,graphqlOperation} from "aws-amplify";
-import {getEmployee, listEmployees} from '../../../graphql/queries'
+import {listEmployees} from '../../../graphql/queries'
 import {useHistory} from 'react-router'
-import {id} from '../../../App'
 import {emp_full_name} from '../../../App'
 
 const LeadEmp = () => {
 const history=useHistory();
-const userId=id[id.length-1];
 const fullName=emp_full_name[emp_full_name.length-1];
 const [GetEmployee,setGetEmployee]=React.useState([]);
  const [searchResults, setSearchResults] = React.useState([]);
-
 React.useEffect(()=>{
        fetchData();
     },[]);
-
     //Function for Fetching employee list from database
-
     const fetchData= async ()=>{
   try{ 
        const EmployeeData = await API.graphql(graphqlOperation(listEmployees));
@@ -58,18 +50,14 @@ React.useEffect(()=>{
     console.log('error on fetching data',error);
   }
     }
-
  //Filter Lead Team From Employees List
-
 React.useEffect(()=>{
  const results = GetEmployee.filter(person =>
       person.supervisor.toLowerCase()===fullName.toLowerCase()
     )
     setSearchResults(results);
 },[GetEmployee])
-
 //Pushing Evaluation Form Route
-
 const clickHandler=(id)=>{
   history.push(`/evaluationform/${id}`);
 }

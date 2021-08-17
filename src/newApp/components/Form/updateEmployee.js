@@ -268,7 +268,6 @@ const UpdateEmployee = () => {
               </Form.Label>
               <Col sm={10} className="form-input">
                 <input type="file" onChange={handleChange} required />
-                {/* <img src={store.fileUrl} /> */}
               </Col>
             </Form.Group>
             <Form.Group as={Row}>
@@ -284,7 +283,6 @@ const UpdateEmployee = () => {
                   }
                   required
                 >
-                  {/* <option value="admin">Admin</option>  */}
                   <option value="owner">Owner</option>
                   <option value="hr">HR</option>
                   <option value="hr manager">HR Manager</option>
@@ -373,7 +371,6 @@ const UpdateEmployee = () => {
                   type="text"
                   placeholder="company"
                   value={employee.company}
-                  // onChange={(e)=>setEmployee({...employee,company:e.target.value})}
                   required
                   disabled
                 />
