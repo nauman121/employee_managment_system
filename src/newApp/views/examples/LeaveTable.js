@@ -148,11 +148,20 @@ if(role==='lead'){
   //useEffect hook for filtering leave data on the basis of search
   React.useEffect(() => {
     const results = leaveResults.filter((leave) => {
+      if(!searchDate){
       if (leave.employee.full_name.toLowerCase().includes(searchTerm) ) {
         return true;
       } else {
         return false;
       }
+    }
+    else{
+     if (leave.employee.full_name.toLowerCase().includes(searchTerm) && leave.from.toLowerCase().includes(searchDate)) {
+        return true;
+      } else {
+        return false;
+      }
+    }
     });
     setSearchResults(results);
   }, [searchTerm]);

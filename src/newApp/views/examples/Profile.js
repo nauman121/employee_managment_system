@@ -235,6 +235,45 @@ getUser();
 fetchData();
 },[])
 
+React.useEffect(()=>{
+ if (localStorage.getItem("warnings") < empWarnings.length) {
+      toast.success('there is new warning for you', {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+      });
+      //storing number of leaves in localStorage for notification purpose
+      localStorage.setItem("warnings", empWarnings.length);
+    }
+    if (
+     empWarnings.length > 0 &&
+      localStorage.getItem("warnings") > empWarnings.length
+    ) {
+      localStorage.setItem("warnings", empWarnings.length);
+    }
+    console.log(localStorage.getItem("warnings"));
+},[empWarnings])
+
+React.useEffect(()=>{
+ if (localStorage.getItem("evaluation") < empEvaluation.length) {
+      toast.success('there is new warning for you', {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+      });
+      //storing number of leaves in localStorage for notification purpose
+      localStorage.setItem("evaluation", empEvaluation.length);
+    }
+    if (
+     empEvaluation.length > 0 &&
+      localStorage.getItem("evaluation") > empEvaluation.length
+    ) {
+      localStorage.setItem("evaluation", empEvaluation.length);
+    }
+    console.log(localStorage.getItem("evaluation"));
+},[empEvaluation]);
+
+
 const classes = useStyles();
 
   return (
