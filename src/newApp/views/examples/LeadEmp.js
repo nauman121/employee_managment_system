@@ -1,7 +1,6 @@
 import React from "react";
 import {Auth} from "aws-amplify";
 import {
-  Badge,
   Card,
   CardHeader,
   CardFooter,
@@ -10,18 +9,9 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
   Table,
   Container,
-  Row,
-  InputGroupText,
-  Form,
-  InputGroup,
-  InputGroupAddon,
-  Input,
-  FormGroup
+  Row
 } from "reactstrap";
 import 'react-bootstrap';
 // core components

@@ -13,7 +13,6 @@ import {
   Pagination,
   PaginationItem,
   PaginationLink,
-  // Progress,
   Table,
   Container,
   Row,
@@ -23,7 +22,6 @@ import {
   InputGroupAddon,
   Input,
   FormGroup
-    // UncontrolledTooltip,
 } from "reactstrap";
 import 'react-bootstrap';
 // core components
@@ -31,7 +29,6 @@ import Header from "../../components/Headers/Header";
  import {API,graphqlOperation} from "aws-amplify";
 import {listEmployees} from '../../../graphql/queries'
 import {useHistory} from 'react-router'
-
 
 const HrEmp = () => {
 const [HrTeam,setHrTeam]=React.useState([]);
@@ -50,8 +47,6 @@ React.useEffect(()=>{
     );
     setSearchResults(results);
 },[searchTerm])
-
-
   const history=useHistory();
   const [getEmployee,setGetEmployee]=React.useState([]);
 React.useEffect(()=>{
@@ -66,7 +61,6 @@ const results = getEmployee.filter((person) =>{
    else{
      return false
    }
-     
  }
     );
     setHrTeam(results);
@@ -82,7 +76,6 @@ const results = getEmployee.filter((person) =>{
     console.log('error on fetching data',error);
   }
     }
-
 const handleEdit =(id)=>{
 history.push(`/${id}`);
 }
@@ -92,8 +85,6 @@ history.push(`/editjobhistory/${id}`);
 const handleWarnig =(id)=>{
 history.push(`/warning/${id}`);
 }
-
-
   const clickHandler=(e)=>{
     e.preventDefault();
     history.push('/addemployee');

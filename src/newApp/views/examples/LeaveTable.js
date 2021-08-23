@@ -5,6 +5,7 @@ import { listLeaves,getEmployee } from "../../../graphql/queries";
 import { useHistory } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import {onCreateLeave} from '../../../graphql/subscriptions'
 // reactstrap components
 import {
   Input,
@@ -49,6 +50,16 @@ const LeaveTables = () => {
     //assinging role to variable
   const role=roleArr[roleArr.length-1];
   //function for fetching leave data from database
+
+     const subscription = API.graphql(
+    graphqlOperation(onCreateLeave)
+).subscribe({
+    next: ({ provider, value }) => console.log('hello',{ provider, value }),
+    error: error => console.warn(error)
+});
+// Stop receiving data updates from the subscription
+subscription.unsubscribe();
+
 
     const fetchData = async () => {
       if(role==='hr' || role==='hr manager'){
@@ -106,6 +117,7 @@ const LeaveTables = () => {
   //useEffect hook for fetching leaves from database  on initial run
   React.useEffect(() => {
     fetchData();
+ 
   }, []);
   //useEffect hook for filtering leaves for hr manager, hr and team lead module
   React.useEffect(() => {
