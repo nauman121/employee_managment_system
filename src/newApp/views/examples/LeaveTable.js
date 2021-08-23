@@ -51,14 +51,12 @@ const LeaveTables = () => {
   const role=roleArr[roleArr.length-1];
   //function for fetching leave data from database
 
-     const subscription = API.graphql(
+     API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
-    next: ({ provider, value }) => console.log('hello',{ provider, value }),
+    next: (data) => console.log('hello',data),
     error: error => console.warn(error)
 });
-// Stop receiving data updates from the subscription
-subscription.unsubscribe();
 
 
     const fetchData = async () => {
