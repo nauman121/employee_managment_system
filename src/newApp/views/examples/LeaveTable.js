@@ -49,7 +49,6 @@ const LeaveTables = () => {
   const userId = id[id.length - 1];
     //assinging role to variable
   const role=roleArr[roleArr.length-1];
-  const [realTime,setRealTime] = React.useState();
   //function for fetching leave data from database
     
 
@@ -104,13 +103,7 @@ const LeaveTables = () => {
     } catch (error) {
       console.log("error on fetching data", error);
     }
-    }
-  };
-    
-  //useEffect hook for fetching leaves from database  on initial run
-  React.useEffect(() => {
-    fetchData();
-     API.graphql(
+    API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
     next: (data) =>{ 
@@ -123,6 +116,13 @@ const LeaveTables = () => {
     },
     error: error => console.warn(error)
 });
+    }
+  };
+    
+  //useEffect hook for fetching leaves from database  on initial run
+  React.useEffect(() => {
+    fetchData();
+     
   }, []);
   //useEffect hook for filtering leaves for hr manager, hr and team lead module
   React.useEffect(() => {
