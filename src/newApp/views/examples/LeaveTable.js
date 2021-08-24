@@ -114,13 +114,12 @@ const LeaveTables = () => {
     graphqlOperation(onCreateLeave)
 ).subscribe({
     next: (data) =>{ 
-      setRealTime(data.value.data.onCreateLeave); 
-      toast.success(`one employee have applied for leave`, {
+      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]); 
+      toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,
       });
-  console.log(realTime); 
     },
     error: error => console.warn(error)
 });
