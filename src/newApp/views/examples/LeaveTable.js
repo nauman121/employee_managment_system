@@ -146,7 +146,6 @@ if(role==='lead'){
     graphqlOperation(onCreateLeave)
 ).subscribe({
     next: (data) =>{ 
-      console.log('hello',getLeaves);
       setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
       getLeaves.map((leave)=>{
         if(!leave.alert){
