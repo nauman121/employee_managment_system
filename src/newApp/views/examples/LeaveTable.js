@@ -2,6 +2,7 @@
 import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { listLeaves,getEmployee } from "../../../graphql/queries";
+import {updateLeave} from '../../../graphql/mutations'
 import { useHistory } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -153,9 +154,8 @@ if(role==='lead'){
         autoClose: false,
         hideProgressBar: true,
       });
-     data.value.data.onCreateLeave.alert='true';
+     API.graphql(graphqlOperation(updateLeave,{Input:data.value.data.onCreateLeave.alert='true'}));
         }
-      
     },
     error: error => console.warn(error)
 });
