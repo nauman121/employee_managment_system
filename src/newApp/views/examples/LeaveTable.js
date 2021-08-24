@@ -146,15 +146,17 @@ if(role==='lead'){
     API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
-    next: (data) =>{ 
+    next: async (data) =>{ 
       setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
         if(data.value.data.onCreateLeave.alert==='false'){
-          toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
+          toast.success(`hy, ${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,
       });
-     API.graphql(graphqlOperation(updateLeave,{Input:data.value.data.onCreateLeave.alert='true'}));
+      const leave=data.value.data.onCreateLeave;
+      const update={id:leave.id,from:leave.from,to:leave.to,remarks:leave.remarks,leave:leave.leave,Hr_Approval:leave.Hr_Approval,Hr_Approval:leave.Hr_Approval,type:leave.type,alert:'true'}
+     await API.graphql(graphqlOperation(updateLeave,{Input:update}));
         }
     },
     error: error => console.warn(error)
