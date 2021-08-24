@@ -103,19 +103,7 @@ const LeaveTables = () => {
     } catch (error) {
       console.log("error on fetching data", error);
     }
-    API.graphql(
-    graphqlOperation(onCreateLeave)
-).subscribe({
-    next: (data) =>{ 
-      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]); 
-      toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
-        position: "top-right",
-        autoClose: false,
-        hideProgressBar: true,
-      });
-    },
-    error: error => console.warn(error)
-});
+  
     }
   };
     
@@ -154,6 +142,20 @@ if(role==='hr'){
     setLeaveResults(result);
   }
 if(role==='lead'){
+    API.graphql(
+    graphqlOperation(onCreateLeave)
+).subscribe({
+    next: (data) =>{ 
+      console.log(getLeaves);
+      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]); 
+      toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+      });
+    },
+    error: error => console.warn(error)
+});
   // filtering leave records on the basis of applicant supervisor
     const result = getLeaves.filter(
       (leave) => leave.supervisor.toLowerCase() === empName.toLowerCase()
