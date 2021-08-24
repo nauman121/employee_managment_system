@@ -147,15 +147,14 @@ if(role==='lead'){
 ).subscribe({
     next: (data) =>{ 
       setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
-      getLeaves.map((leave)=>{
-        if(!leave.alert){
+        if(!data.value.data.onCreateLeave.alert){
           toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,
       });
+     data.value.data.onCreateLeave.alert='true';
         }
-      }) 
       
     },
     error: error => console.warn(error)
