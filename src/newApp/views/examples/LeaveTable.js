@@ -107,7 +107,6 @@ const LeaveTables = () => {
   
     }
   };
-    
   //useEffect hook for fetching leaves from database  on initial run
   React.useEffect(() => {
     fetchData();
@@ -146,24 +145,8 @@ if(role==='lead'){
     API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
-    next: async (data) =>{ 
-      console.log(data.value.data.onCreateLeave.alert);
+    next: (data) =>{ 
       setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
-        if(data.value.data.onCreateLeave.alert==='false'){
-          toast.success(`hy, ${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
-        position: "top-right",
-        autoClose: false,
-        hideProgressBar: true,
-      });
-      const leave=data.value.data.onCreateLeave;
-      const update={id:leave.id,from:leave.from,to:leave.to,remarks:leave.remarks,leave:leave.leave,Hr_Approval:leave.Hr_Approval,Hr_Approval:leave.Hr_Approval,type:leave.type,alert:'true'}
-      try{
-     await API.graphql(graphqlOperation(updateLeave,{Input:update}));
-      }
-      catch(error){
-        console.log(error);
-      }
-        }
     },
     error: error => console.warn(error)
 });
