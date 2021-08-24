@@ -104,7 +104,6 @@ const LeaveTables = () => {
     } catch (error) {
       console.log("error on fetching data", error);
     }
-  
     }
   };
   //useEffect hook for fetching leaves from database  on initial run
