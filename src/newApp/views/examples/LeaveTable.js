@@ -147,12 +147,17 @@ if(role==='lead'){
 ).subscribe({
     next: (data) =>{ 
       console.log('hello',getLeaves);
-      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]); 
-      toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
+      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
+      getLeaves.map((leave)=>{
+        if(!leave.alert){
+          toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,
       });
+        }
+      }) 
+      
     },
     error: error => console.warn(error)
 });
