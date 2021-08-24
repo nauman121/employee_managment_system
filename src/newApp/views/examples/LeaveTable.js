@@ -49,22 +49,24 @@ const LeaveTables = () => {
   const userId = id[id.length - 1];
     //assinging role to variable
   const role=roleArr[roleArr.length-1];
+  const [realTime,setRealTime] = React.useState();
   //function for fetching leave data from database
-
      API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
     next: (data) =>{ 
-      console.log('hello',data);
-      toast.success(`one employee have applied for leave`, {
+      setRealTime(data.value.data.onCreateLeave);  
+    },
+    error: error => console.warn(error)
+});
+React.useEffect(()=>{
+toast.success(`one employee have applied for leave`, {
         position: "top-right",
         autoClose: false,
         hideProgressBar: true,
       });
-      
-    },
-    error: error => console.warn(error)
-});
+  console.log(realTime);
+},[realTime])
 
     const fetchData = async () => {
       if(role==='hr' || role==='hr manager'){
