@@ -146,7 +146,7 @@ if(role==='lead'){
     graphqlOperation(onCreateLeave)
 ).subscribe({
     next: (data) =>{ 
-      console.log(getLeaves);
+      console.log('hello',getLeaves);
       setGetLeaves([...getLeaves,data.value.data.onCreateLeave]); 
       toast.success(`${data.value.data.onCreateLeave.employee.full_name} is applied for leave`, {
         position: "top-right",
