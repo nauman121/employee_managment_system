@@ -110,7 +110,16 @@ const LeaveTables = () => {
   //useEffect hook for fetching leaves from database  on initial run
   React.useEffect(() => {
     fetchData();
-     
+     console.log('b',getLeaves);
+    API.graphql(
+    graphqlOperation(onCreateLeave)
+).subscribe({
+    next: (data) =>{ 
+      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
+        console.log('a',getLeaves);
+    },
+    error: error => console.warn(error)
+});
   }, []);
   //useEffect hook for filtering leaves for hr manager, hr and team lead module
   React.useEffect(() => {
@@ -142,16 +151,7 @@ if(role==='hr'){
     setLeaveResults(result);
   }
 if(role==='lead'){
-  console.log('b',getLeaves);
-    API.graphql(
-    graphqlOperation(onCreateLeave)
-).subscribe({
-    next: (data) =>{ 
-      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
-        console.log('a',getLeaves);
-    },
-    error: error => console.warn(error)
-});
+  
   // filtering leave records on the basis of applicant supervisor
     const result = getLeaves.filter(
       (leave) => leave.supervisor.toLowerCase() === empName.toLowerCase()
