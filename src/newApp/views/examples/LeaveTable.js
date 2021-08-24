@@ -51,22 +51,8 @@ const LeaveTables = () => {
   const role=roleArr[roleArr.length-1];
   const [realTime,setRealTime] = React.useState();
   //function for fetching leave data from database
-     API.graphql(
-    graphqlOperation(onCreateLeave)
-).subscribe({
-    next: (data) =>{ 
-      setRealTime(data.value.data.onCreateLeave);  
-    },
-    error: error => console.warn(error)
-});
-React.useEffect(()=>{
-toast.success(`one employee have applied for leave`, {
-        position: "top-right",
-        autoClose: false,
-        hideProgressBar: true,
-      });
-  console.log(realTime);
-},[realTime])
+    
+
 
     const fetchData = async () => {
       if(role==='hr' || role==='hr manager'){
@@ -124,6 +110,20 @@ toast.success(`one employee have applied for leave`, {
   //useEffect hook for fetching leaves from database  on initial run
   React.useEffect(() => {
     fetchData();
+     API.graphql(
+    graphqlOperation(onCreateLeave)
+).subscribe({
+    next: (data) =>{ 
+      setRealTime(data.value.data.onCreateLeave); 
+      toast.success(`one employee have applied for leave`, {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+      });
+  console.log(realTime); 
+    },
+    error: error => console.warn(error)
+});
   }, []);
   //useEffect hook for filtering leaves for hr manager, hr and team lead module
   React.useEffect(() => {
