@@ -54,10 +54,17 @@ const LeaveTables = () => {
      API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
-    next: (data) => console.log('hello',data),
+    next: (data) =>{ 
+      console.log('hello',data);
+      toast.success(`one employee have applied for leave`, {
+        position: "top-right",
+        autoClose: false,
+        hideProgressBar: true,
+      });
+      
+    },
     error: error => console.warn(error)
 });
-
 
     const fetchData = async () => {
       if(role==='hr' || role==='hr manager'){
@@ -115,7 +122,6 @@ const LeaveTables = () => {
   //useEffect hook for fetching leaves from database  on initial run
   React.useEffect(() => {
     fetchData();
- 
   }, []);
   //useEffect hook for filtering leaves for hr manager, hr and team lead module
   React.useEffect(() => {
@@ -256,7 +262,6 @@ if(role==='lead'){
     }
 }
 }
-
   return (
     <>
       {searchTerm ? (
