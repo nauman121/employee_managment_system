@@ -142,13 +142,14 @@ if(role==='hr'){
     setLeaveResults(result);
   }
 if(role==='lead'){
-  console.log(getLeaves);
+  console.log('b',getLeaves);
     API.graphql(
     graphqlOperation(onCreateLeave)
 ).subscribe({
     next: (data) =>{ 
     
       setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
+        console.log('a',getLeaves);
     },
     error: error => console.warn(error)
 });
