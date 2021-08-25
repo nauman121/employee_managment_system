@@ -2,11 +2,9 @@
 import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { listLeaves,getEmployee } from "../../../graphql/queries";
-import {updateLeave} from '../../../graphql/mutations'
 import { useHistory } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import {onCreateLeave} from '../../../graphql/subscriptions'
 // reactstrap components
 import {
   Input,

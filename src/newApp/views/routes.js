@@ -122,6 +122,13 @@ export var lead = [
     icon: "ni ni-bullet-list-67 text-red",
     component: LeadEmp,
     layout: "/admin",
+  },
+  {
+    path: "/attendence",
+    name: "My Attendence",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: AttendenceTable,
+    layout: "/admin",
   }
 ];
 
