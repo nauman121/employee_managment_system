@@ -31,7 +31,7 @@ type Employee @model {
 }
 type Attendence @model @key(name: "byEmployee", fields: ["employee_id"]) {
   id: ID!
-  employee_id: ID!
+  employee_id: String!
   date: String!
   in_time: String!
   out_time: String!
