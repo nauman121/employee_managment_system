@@ -24,7 +24,8 @@ type Employee @model {
   last_degree: String!
   institute: String!
   leaves: [Leave] @connection(keyName: "byEmployee", fields: ["id"])
-  attendence: [Attendence] @connection(keyName: "byEmployee", fields: ["id"])
+  attendece: [Attendence]
+    @connection(keyName: "byEmployee", fields: ["emplyoee_id"])
   jobs: [Job] @connection(keyName: "byEmployee", fields: ["id"])
   evaluation: [Evaluation] @connection(keyName: "byEmployee", fields: ["id"])
   warnings: [Warning] @connection(keyName: "byEmployee", fields: ["id"])
