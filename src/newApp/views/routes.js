@@ -49,7 +49,7 @@ import HrAttendenceTable from './examples/HrAttandenceTable'
   },
   {
     path: "/attendence",
-    name: "Employee Attendence",
+    name: "Employees Attendence",
     icon: "ni ni-bullet-list-67 text-red",
     component: HrAttendenceTable,
     layout: "/admin",
@@ -79,7 +79,7 @@ export var manager = [
   },
   {
     path: "/attendence",
-    name: "Employee Attendence",
+    name: "Employees Attendence",
     icon: "ni ni-bullet-list-67 text-red",
     component: HrAttendenceTable,
     layout: "/admin",
