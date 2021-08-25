@@ -31,6 +31,7 @@ const LeaveOfEmployee = () => {
   const fetchData= async ()=>{
   try{
 const LeavesData=await API.graphql(graphqlOperation(getEmployee,{id:id[id.length-1]}))
+console.log(LeavesData);
  const data = LeavesData.data.getEmployee.leaves.items;
  setLeave(data);
   }
