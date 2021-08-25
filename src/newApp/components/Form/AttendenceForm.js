@@ -44,7 +44,7 @@ function AttendenceForm() {
     });
 }
 const cancelHandler = () => {
-    history.push('/admin/team');
+    history.push('/admin/attendence');
   }
     return (
         <Form>

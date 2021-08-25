@@ -18,7 +18,7 @@ import Header from "../../components/Headers/Header.js";
 import {useHistory} from 'react-router'
 const HrAttendenceTable = () => {
     const history=useHistory();
-    const clickHandler=(e)=>{
+const clickHandler=(e)=>{
     e.preventDefault();
     history.push('/addattendence');
   }
@@ -32,7 +32,7 @@ const HrAttendenceTable = () => {
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row'}}>
-                  <button class="btn btn-white mx-2" type="submit" ><i class="fa fa-plus"  aria-hidden="true" onClick={clickHandler}></i></button>
+                  <button class="btn btn-white mx-2" type="submit" onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true"></i></button>
               <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText >
