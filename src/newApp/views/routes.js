@@ -6,6 +6,7 @@ import LeadEmp from './examples/LeadEmp'
 import OwnerTeam from './examples/OwnerTeam'
 import HrEmp from './examples/HrEmp'
 import AttendenceTable from './examples/AttendenceTable'
+import HrAttendenceTable from './examples/HrAttandenceTable'
 
   export var owner= [
   {
@@ -45,6 +46,13 @@ import AttendenceTable from './examples/AttendenceTable'
     icon: "ni ni-bullet-list-67 text-red",
     component: LeaveTables,
     layout: "/admin",
+  },
+  {
+    path: "/attendence",
+    name: "Employee Attendence",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: HrAttendenceTable,
+    layout: "/admin",
   }
 ];
 export var manager = [
@@ -67,6 +75,13 @@ export var manager = [
     name: "Leaves",
     icon: "ni ni-bullet-list-67 text-red",
     component: LeaveTables,
+    layout: "/admin",
+  },
+  {
+    path: "/attendence",
+    name: "Employee Attendence",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: HrAttendenceTable,
     layout: "/admin",
   }
 ];
