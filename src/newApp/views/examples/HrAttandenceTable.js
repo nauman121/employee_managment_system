@@ -21,19 +21,20 @@ import {useHistory} from 'react-router'
 const HrAttendenceTable = () => {
      const [getAttendence, setGetAttendence] = React.useState([]);
 const history=useHistory();
-const getData= async()=>{
+const fetchData= async()=>{
 const attendenceData = await API.graphql(graphqlOperation(listAttendences));
 const Ldata = attendenceData.data.listAttendences.items;
 console.log(Ldata);
 setGetAttendence(Ldata);
 }
+React.useEffect(() => {
+    fetchData();
+  }, []);
 const clickHandler=(e)=>{
     e.preventDefault();
     history.push('/addattendence');
   }
-  React.useEffect(()=>{
-     getData();
-  },[])
+  
   return (
     <>
       <Header />
