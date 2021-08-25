@@ -101,16 +101,6 @@ const LeaveTables = () => {
       Ldata.sort(compare);
       //storing sorted leaves in getLeaves hook
       setGetLeaves(Ldata);
-         console.log('b',getLeaves);
-    API.graphql(
-    graphqlOperation(onCreateLeave)
-).subscribe({
-    next: (data) =>{ 
-      setGetLeaves([...getLeaves,data.value.data.onCreateLeave]);
-        console.log('a',getLeaves);
-    },
-    error: error => console.warn(error)
-});
     } catch (error) {
       console.log("error on fetching data", error);
     }
@@ -119,7 +109,6 @@ const LeaveTables = () => {
   //useEffect hook for fetching leaves from database  on initial run
   React.useEffect(() => {
     fetchData();
-  
   }, []);
   //useEffect hook for filtering leaves for hr manager, hr and team lead module
   React.useEffect(() => {

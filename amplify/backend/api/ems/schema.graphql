@@ -24,9 +24,18 @@ type Employee @model {
   last_degree: String!
   institute: String!
   leaves: [Leave] @connection(keyName: "byEmployee", fields: ["id"])
+  attendence: [Attendence] @connection(keyName: "byEmployee", fields: ["id"])
   jobs: [Job] @connection(keyName: "byEmployee", fields: ["id"])
   evaluation: [Evaluation] @connection(keyName: "byEmployee", fields: ["id"])
   warnings: [Warning] @connection(keyName: "byEmployee", fields: ["id"])
+}
+type Attendence @model @key(name: "byEmployee", fields: ["employee_id"]) {
+  id: ID!
+  employee_id: ID!
+  date: String!
+  in_time: String!
+  out_time: String!
+  employee: Employee @connection(fields: ["employee_id"])
 }
 type Leave @model @key(name: "byEmployee", fields: ["employee_id"]) {
   id: ID!
