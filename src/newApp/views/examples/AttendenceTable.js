@@ -67,9 +67,11 @@ React.useEffect(()=>{
            {
                  attendence.map((atten,i)=>{
               return (<>  
+               <tr>
                    <td style={{fontSize:'12px'}}>{atten.date}</td>
                     <td style={{fontSize:'12px'}}>{atten.in_time}</td>
                     <td style={{fontSize:'12px'}}>{atten.out_time}</td>
+               </tr>
                     </>)
                  })
                 }
