@@ -1,4 +1,7 @@
 import React from "react";
+import {getEmployee} from '../../../graphql/queries'
+import {API,graphqlOperation} from "aws-amplify";
+import {id} from '../../../App'
 // reactstrap components
 import {
   Card,
@@ -16,7 +19,22 @@ import 'react-bootstrap';
  // core components
 import Header from "../../components/Headers/Header.js";
 const AttendenceTable = () => {
-  
+      const [attendence,setAttendence]=React.useState([]);
+  const fetchData= async ()=>{
+  try{
+const LeavesData=await API.graphql(graphqlOperation(getEmployee,{id:id[id.length-1]}))
+console.log(LeavesData);
+ const data = LeavesData.data.getEmployee.attendences.items;
+ setAttendence(data);
+  }
+  catch(error){
+    console.log('error on fetching data',error);
+  }
+}
+
+React.useEffect(()=>{
+    fetchData();
+},[])
   return (
     <>
       <Header />
@@ -44,11 +62,17 @@ const AttendenceTable = () => {
                     <th scope="col" />
                   </tr>
                 </thead>
-                   <td style={{fontSize:'12px'}}> </td>
-                    <td style={{fontSize:'12px'}}></td>
-                    <td style={{fontSize:'12px'}}></td>
+             
                 <tbody>
-        
+           {
+                 attendence.map((atten,i)=>{
+              return (<>  
+                   <td style={{fontSize:'12px'}}>{atten.date}</td>
+                    <td style={{fontSize:'12px'}}>{atten.in_time}</td>
+                    <td style={{fontSize:'12px'}}>{atten.out_time}</td>
+                    </>)
+                 })
+                }
                 </tbody>
               </Table>
              
