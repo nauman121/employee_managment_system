@@ -5,6 +5,7 @@ import LeaveOfEmployee from './examples/LeaveOfEmployee'
 import LeadEmp from './examples/LeadEmp'
 import OwnerTeam from './examples/OwnerTeam'
 import HrEmp from './examples/HrEmp'
+import AttendenceTable from './examples/AttendenceTable'
 
   export var owner= [
   {
@@ -79,9 +80,16 @@ export var emp = [
   },
   {
     path: "/Empleaves",
-    name: "Employee Leaves",
+    name: "My Leaves",
     icon: "ni ni-bullet-list-67 text-red",
     component: LeaveOfEmployee,
+    layout: "/admin",
+  },
+  {
+    path: "/attendence",
+    name: "My Attendence",
+    icon: "ni ni-bullet-list-67 text-red",
+    component: AttendenceTable,
     layout: "/admin",
   }
 ];
