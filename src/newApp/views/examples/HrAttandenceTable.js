@@ -1,6 +1,6 @@
 import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
-import { getAttendence, listAttendences } from "../../../graphql/queries";
+import {listAttendences } from "../../../graphql/queries";
 // reactstrap components
 import {
   Card,
@@ -19,12 +19,12 @@ import 'react-bootstrap';
 import Header from "../../components/Headers/Header.js";
 import {useHistory} from 'react-router'
 const HrAttendenceTable = () => {
-     const [getLeaves, setGetLeaves] = React.useState([]);
+     const [getAttendence, setGetAttendence] = React.useState([]);
 const history=useHistory();
 const getData= async()=>{
 const attendenceData = await API.graphql(graphqlOperation(listAttendences));
 const Ldata = attendenceData.data.listAttendences.items;
-setGetLeaves(Ldata);
+setGetAttendence(Ldata);
 }
 const clickHandler=(e)=>{
     e.preventDefault();
