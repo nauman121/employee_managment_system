@@ -1,4 +1,6 @@
 import React from "react";
+import { API, graphqlOperation } from "aws-amplify";
+import { getAttendence, listAttendences } from "../../../graphql/queries";
 // reactstrap components
 import {
   Card,
@@ -17,11 +19,20 @@ import 'react-bootstrap';
 import Header from "../../components/Headers/Header.js";
 import {useHistory} from 'react-router'
 const HrAttendenceTable = () => {
-    const history=useHistory();
+     const [getLeaves, setGetLeaves] = React.useState([]);
+const history=useHistory();
+const getData= async()=>{
+const attendenceData = await API.graphql(graphqlOperation(listAttendences));
+const Ldata = attendenceData.data.listAttendences.items;
+setGetLeaves(Ldata);
+}
 const clickHandler=(e)=>{
     e.preventDefault();
     history.push('/addattendence');
   }
+  React.useEffect(()=>{
+     getData();
+  },[])
   return (
     <>
       <Header />
@@ -51,12 +62,20 @@ const clickHandler=(e)=>{
                     <th scope="col" />
                   </tr>
                 </thead>
-                 <td style={{fontSize:'12px'}}> </td>
-                   <td style={{fontSize:'12px'}}> </td>
-                    <td style={{fontSize:'12px'}}></td>
-                    <td style={{fontSize:'12px'}}></td>
+                 
                 <tbody>
-        
+        {
+            getAttendence((atten,i)=>{
+                return (<>
+                <tr>
+                  <td style={{fontSize:'12px'}}>{atten.employee.full_name}</td>
+                   <td style={{fontSize:'12px'}}>{atten.date}</td>
+                    <td style={{fontSize:'12px'}}>{atten.in_time}</td>
+                    <td style={{fontSize:'12px'}}>{atten.out_time}</td>
+            </tr>
+                </>)
+            })
+        }
                 </tbody>
               </Table>
              

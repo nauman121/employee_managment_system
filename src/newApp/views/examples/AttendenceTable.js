@@ -77,7 +77,6 @@ React.useEffect(()=>{
                 }
                 </tbody>
               </Table>
-             
             </Card>
           </div>
         </Row>   
