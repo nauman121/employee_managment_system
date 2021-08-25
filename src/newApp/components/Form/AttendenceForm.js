@@ -27,7 +27,7 @@ function AttendenceForm() {
         await API.graphql(graphqlOperation(
             createAttendence,{input:
                 {
-                 enployee_id:emp.employee_id,
+                 employee_id:emp.employee_id,
                  date:emp.date,
                  in_time:emp.in_time,
                  out_time:emp.out_time
