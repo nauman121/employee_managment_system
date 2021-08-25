@@ -20,6 +20,7 @@ import ViewEvaluationForm from './components/Form/ViewEvaluationForm'
 import UserProfile from './views/examples/UserProfile'
 import Warning from './components/Form/Warning'
 import ChangingPassword from "./components/Form/ChangingPassword";
+import AttendenceForm from './components/Form/AttendenceForm'
 
 
 function Index() {
@@ -35,6 +36,7 @@ function Index() {
       <Route exact path='/editjob/:id/:jobId'><EditJobHistory/></Route>
        <Route exact path='/jobHistory/:id'><JobHistory/></Route>
       <Route exact path='/addemployee'><AddEmployee/></Route>
+      <Route exact path='/addattendence'><AttendenceForm/></Route>
       <Route exact path='/empLeave/:id'><EditLeave/></Route>
       <Route exact path='/leadLeaveEdit/:id'><EditLeadLeave/></Route>
       <Route exact path = '/user/:id'><UserProfile/></Route>

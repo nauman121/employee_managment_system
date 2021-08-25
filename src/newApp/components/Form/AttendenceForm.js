@@ -2,13 +2,14 @@ import React from 'react'
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { API, graphqlOperation } from "aws-amplify";
 import {createAttendence} from '../../../graphql/mutations';
+import {useHistory} from 'react-router'
 import XLSX from 'xlsx';
 function AttendenceForm() {
+    const history = useHistory();
     const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
       const fileReader = new FileReader();
       fileReader.readAsArrayBuffer(file);
-
       fileReader.onload = (e) => {
         const bufferArray = e.target.result;
         const wb = XLSX.read(bufferArray, { type: 'buffer' });
@@ -32,9 +33,7 @@ function AttendenceForm() {
                  out_time:emp.out_time
                 }})) .then((data) => {
           console.log('opration successfull');
-          setLoading(true);
           window.setTimeout(() => {
-            setLoading(false);
             history.push('/admin/attendence');
           }, 2000)
         }
@@ -44,6 +43,9 @@ function AttendenceForm() {
       })
     });
 }
+const cancelHandler = () => {
+    history.push('/admin/team');
+  }
     return (
         <Form>
         <div className='px-5' style={{ display: 'flex', flexDirection: 'row', gap: '3vw', marginLeft: '13vw' }}>
@@ -57,6 +59,11 @@ function AttendenceForm() {
                       }}
                       required
                     />
+                  </Col>
+                </Form.Group>
+                <Form.Group as={Row} id="form-submit-button" >
+                  <Col sm={{ span: 10, offset: 2 }} >
+                    <Button  className='bg-light' onClick={cancelHandler}>Cancel</Button>
                   </Col>
                 </Form.Group>
               </div>

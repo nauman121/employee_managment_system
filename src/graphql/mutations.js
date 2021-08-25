@@ -108,6 +108,18 @@ export const createEmployee = /* GraphQL */ `
         }
         nextToken
       }
+      attendence {
+        items {
+          id
+          employee_id
+          date
+          in_time
+          out_time
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -215,6 +227,18 @@ export const updateEmployee = /* GraphQL */ `
           date
           type
           description
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      attendence {
+        items {
+          id
+          employee_id
+          date
+          in_time
+          out_time
           createdAt
           updatedAt
         }
@@ -332,6 +356,18 @@ export const deleteEmployee = /* GraphQL */ `
         }
         nextToken
       }
+       attendence {
+        items {
+          id
+          employee_id
+          date
+          in_time
+          out_time
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -379,6 +415,9 @@ export const createLeave = /* GraphQL */ `
         last_degree
         institute
         leaves {
+          nextToken
+        }
+        attendence {
           nextToken
         }
         jobs {
@@ -445,6 +484,9 @@ export const updateLeave = /* GraphQL */ `
         jobs {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         evaluation {
           nextToken
         }
@@ -506,6 +548,9 @@ export const deleteLeave = /* GraphQL */ `
         jobs {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         evaluation {
           nextToken
         }
@@ -558,6 +603,9 @@ export const createJob = /* GraphQL */ `
         last_degree
         institute
         leaves {
+          nextToken
+        }
+        attendence {
           nextToken
         }
         jobs {
@@ -617,6 +665,9 @@ export const updateJob = /* GraphQL */ `
         leaves {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         jobs {
           nextToken
         }
@@ -672,6 +723,9 @@ export const deleteJob = /* GraphQL */ `
         last_degree
         institute
         leaves {
+          nextToken
+        }
+        attendence {
           nextToken
         }
         jobs {
@@ -751,6 +805,9 @@ export const createEvaluation = /* GraphQL */ `
         last_degree
         institute
         leaves {
+          nextToken
+        }
+        attendence {
           nextToken
         }
         jobs {
@@ -835,6 +892,9 @@ export const updateEvaluation = /* GraphQL */ `
         jobs {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         evaluation {
           nextToken
         }
@@ -914,6 +974,9 @@ export const deleteEvaluation = /* GraphQL */ `
         jobs {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         evaluation {
           nextToken
         }
@@ -976,6 +1039,9 @@ export const createWarning = /* GraphQL */ `
         warnings {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -1032,6 +1098,9 @@ export const updateWarning = /* GraphQL */ `
         warnings {
           nextToken
         }
+        attendence {
+          nextToken
+        }
         createdAt
         updatedAt
       }
@@ -1077,6 +1146,68 @@ export const deleteWarning = /* GraphQL */ `
         last_degree
         institute
         leaves {
+          nextToken
+        }
+        jobs {
+          nextToken
+        }
+        evaluation {
+          nextToken
+        }
+        warnings {
+          nextToken
+        }
+        attendence {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createAttendence = /* GraphQL */ `
+  mutation CreateAttendence(
+    $input: CreateAttendenceInput!
+    $condition: ModelAttendenceConditionInput
+  ) {
+    createAttendence(input: $input, condition: $condition) {
+      id
+      employee_id
+      date
+      in_time
+      out_time
+      employee {
+        id
+        employee_id
+        employee_name
+        full_name
+        father_name
+        cnic
+        employee_addr
+        employee_email
+        employee_phone1
+        employee_phone2
+        employee_pic
+        employee_salary
+        role
+        supervisor
+        company
+        blood_group
+        transport_mode
+        vichel_no
+        dob
+        doj
+        status
+        end_date
+        last_degree
+        institute
+        leaves {
+          nextToken
+        }
+        attendence{
           nextToken
         }
         jobs {
