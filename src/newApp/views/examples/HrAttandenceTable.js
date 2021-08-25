@@ -24,6 +24,7 @@ const history=useHistory();
 const getData= async()=>{
 const attendenceData = await API.graphql(graphqlOperation(listAttendences));
 const Ldata = attendenceData.data.listAttendences.items;
+console.log(Ldata);
 setGetAttendence(Ldata);
 }
 const clickHandler=(e)=>{
@@ -65,9 +66,9 @@ const clickHandler=(e)=>{
                  
                 <tbody>
         {
-            getAttendence((atten,i)=>{
+            getAttendence.map((atten,i)=>{
                 return (<>
-                <tr>
+                <tr key={i}>
                   <td style={{fontSize:'12px'}}>{atten.employee.full_name}</td>
                    <td style={{fontSize:'12px'}}>{atten.date}</td>
                     <td style={{fontSize:'12px'}}>{atten.in_time}</td>
