@@ -108,7 +108,7 @@ export const createEmployee = /* GraphQL */ `
         }
         nextToken
       }
-      attendence {
+      attendences {
         items {
           id
           employee_id
@@ -232,7 +232,7 @@ export const updateEmployee = /* GraphQL */ `
         }
         nextToken
       }
-      attendence {
+      attendences {
         items {
           id
           employee_id
@@ -356,7 +356,7 @@ export const deleteEmployee = /* GraphQL */ `
         }
         nextToken
       }
-       attendence {
+       attendences {
         items {
           id
           employee_id
@@ -417,7 +417,7 @@ export const createLeave = /* GraphQL */ `
         leaves {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         jobs {
@@ -484,7 +484,7 @@ export const updateLeave = /* GraphQL */ `
         jobs {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         evaluation {
@@ -548,7 +548,7 @@ export const deleteLeave = /* GraphQL */ `
         jobs {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         evaluation {
@@ -605,7 +605,7 @@ export const createJob = /* GraphQL */ `
         leaves {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         jobs {
@@ -665,7 +665,7 @@ export const updateJob = /* GraphQL */ `
         leaves {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         jobs {
@@ -725,7 +725,7 @@ export const deleteJob = /* GraphQL */ `
         leaves {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         jobs {
@@ -807,7 +807,7 @@ export const createEvaluation = /* GraphQL */ `
         leaves {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         jobs {
@@ -892,7 +892,7 @@ export const updateEvaluation = /* GraphQL */ `
         jobs {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         evaluation {
@@ -974,7 +974,7 @@ export const deleteEvaluation = /* GraphQL */ `
         jobs {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         evaluation {
@@ -1039,7 +1039,7 @@ export const createWarning = /* GraphQL */ `
         warnings {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         createdAt
@@ -1098,7 +1098,7 @@ export const updateWarning = /* GraphQL */ `
         warnings {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         createdAt
@@ -1157,7 +1157,7 @@ export const deleteWarning = /* GraphQL */ `
         warnings {
           nextToken
         }
-        attendence {
+        attendences {
           nextToken
         }
         createdAt
@@ -1207,7 +1207,7 @@ export const createAttendence = /* GraphQL */ `
         leaves {
           nextToken
         }
-        attendence{
+        attendences{
           nextToken
         }
         jobs {
@@ -1217,6 +1217,124 @@ export const createAttendence = /* GraphQL */ `
           nextToken
         }
         warnings {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateAttendence = /* GraphQL */ `
+  mutation UpdateAttendence(
+    $input: UpdateAttendenceInput!
+    $condition: ModelAttendenceConditionInput
+  ) {
+    updateAttendence(input: $input, condition: $condition) {
+      id
+      employee_id
+      date
+      in_time
+      out_time
+      employee {
+        id
+        employee_id
+        employee_name
+        full_name
+        father_name
+        cnic
+        employee_addr
+        employee_email
+        employee_phone1
+        employee_phone2
+        employee_pic
+        employee_salary
+        role
+        supervisor
+        company
+        blood_group
+        transport_mode
+        vichel_no
+        dob
+        doj
+        status
+        end_date
+        last_degree
+        institute
+        leaves {
+          nextToken
+        }
+        jobs {
+          nextToken
+        }
+        evaluation {
+          nextToken
+        }
+        warnings {
+          nextToken
+        }
+        attendences {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteAttendence = /* GraphQL */ `
+  mutation DeleteAttendence(
+    $input: DeleteAttendenceInput!
+    $condition: ModelAttendenceConditionInput
+  ) {
+    deleteAttendence(input: $input, condition: $condition) {
+      id
+      employee_id
+      date
+      in_time
+      out_time
+      employee {
+        id
+        employee_id
+        employee_name
+        full_name
+        father_name
+        cnic
+        employee_addr
+        employee_email
+        employee_phone1
+        employee_phone2
+        employee_pic
+        employee_salary
+        role
+        supervisor
+        company
+        blood_group
+        transport_mode
+        vichel_no
+        dob
+        doj
+        status
+        end_date
+        last_degree
+        institute
+        leaves {
+          nextToken
+        }
+        jobs {
+          nextToken
+        }
+        evaluation {
+          nextToken
+        }
+        warnings {
+          nextToken
+        }
+        attendences {
           nextToken
         }
         createdAt

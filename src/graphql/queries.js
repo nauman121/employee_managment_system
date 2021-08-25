@@ -105,6 +105,18 @@ export const getEmployee = /* GraphQL */ `
         }
         nextToken
       }
+       attendences {
+        items {
+          id
+          employee_id
+          date
+          in_time
+          out_time
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -142,6 +154,9 @@ export const listEmployees = /* GraphQL */ `
         end_date
         last_degree
         institute
+        attendences {
+          nextToken
+        }
         leaves {
           nextToken
         }
@@ -199,6 +214,9 @@ export const getLeave = /* GraphQL */ `
         end_date
         last_degree
         institute
+        attendences {
+          nextToken
+        }
         leaves {
           nextToken
         }
@@ -306,6 +324,9 @@ export const getJob = /* GraphQL */ `
         end_date
         last_degree
         institute
+        attendences {
+          nextToken
+        }
         leaves {
           nextToken
         }
@@ -431,6 +452,9 @@ export const getEvaluation = /* GraphQL */ `
         end_date
         last_degree
         institute
+        attendences {
+          nextToken
+        }
         leaves {
           nextToken
         }
@@ -555,6 +579,9 @@ export const getWarning = /* GraphQL */ `
         end_date
         last_degree
         institute
+        attendences {
+          nextToken
+        }
         leaves {
           nextToken
         }
@@ -588,6 +615,110 @@ export const listWarnings = /* GraphQL */ `
         date
         type
         description
+        employee {
+          id
+          employee_id
+          employee_name
+          full_name
+          father_name
+          cnic
+          employee_addr
+          employee_email
+          employee_phone1
+          employee_phone2
+          employee_pic
+          employee_salary
+          role
+          supervisor
+          company
+          blood_group
+          transport_mode
+          vichel_no
+          dob
+          doj
+          status
+          end_date
+          last_degree
+          institute
+          createdAt
+          updatedAt
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getAttendence = /* GraphQL */ `
+  query GetAttendence($id: ID!) {
+    getAttendence(id: $id) {
+        id
+        employee_id
+        date
+        in_time
+        out_time
+      employee {
+        id
+        employee_id
+        employee_name
+        full_name
+        father_name
+        cnic
+        employee_addr
+        employee_email
+        employee_phone1
+        employee_phone2
+        employee_pic
+        employee_salary
+        role
+        supervisor
+        company
+        blood_group
+        transport_mode
+        vichel_no
+        dob
+        doj
+        status
+        end_date
+        last_degree
+        institute
+        attendences {
+          nextToken
+        }
+        leaves {
+          nextToken
+        }
+        jobs {
+          nextToken
+        }
+        evaluation {
+          nextToken
+        }
+        warnings {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listAttendences = /* GraphQL */ `
+  query ListAttendences(
+    $filter: ModelAttendenceFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listAttendences(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        employee_id
+        date
+        in_time
+        out_time
         employee {
           id
           employee_id
