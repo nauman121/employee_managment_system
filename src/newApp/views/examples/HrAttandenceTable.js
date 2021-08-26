@@ -18,18 +18,24 @@ import 'react-bootstrap';
  // core components
 import Header from "../../components/Headers/Header.js";
 import {useHistory} from 'react-router'
+
 const HrAttendenceTable = () => {
-     const [getAttendence, setGetAttendence] = React.useState([]);
+const [getAttendence, setGetAttendence] = React.useState([]);
 const history=useHistory();
 const fetchData= async()=>{
+  try{
 const attendenceData = await API.graphql(graphqlOperation(listAttendences));
 const Ldata = attendenceData.data.listAttendences.items;
 console.log(Ldata);
 setGetAttendence(Ldata);
+  }
+catch(error){
+    console.log(error);
+  }
 }
 React.useEffect(() => {
     fetchData();
-  }, []);
+  },[]);
 const clickHandler=(e)=>{
     e.preventDefault();
     history.push('/addattendence');
