@@ -293,7 +293,7 @@ const AddEmployee = () => {
                     placeholder="Father Name"
                     value={formState.father_name}
                     onChange={onChange}
-                    required
+                    required='true'
                   />
                 </Col>
               </Form.Group>
