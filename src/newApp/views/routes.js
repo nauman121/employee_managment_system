@@ -29,7 +29,7 @@ import HrAttendenceTable from './examples/HrAttandenceTable'
   {
     path: "/index",
     name: "User Profile",
-    icon: "ni ni-single-02 text-yellow",
+    icon: "fa fa-users text-yellow",
     component: Profile,
     layout: "/admin",
   },
