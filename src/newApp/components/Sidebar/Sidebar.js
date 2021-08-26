@@ -35,13 +35,15 @@ import {
   Container,
   Row,
   Col,
+  Tooltip
 } from "reactstrap";
 
 // var ps;
 import {id} from '../../../App'
 
 const Sidebar = (props) => {
-
+ const [tooltipOpen, setTooltipOpen] = useState(false);
+  const toggle = () => setTooltipOpen(!tooltipOpen);
   const history = useHistory();
 React.useEffect(()=>{
 getEmp();
@@ -74,11 +76,16 @@ const data=await API.graphql(graphqlOperation(getEmployee,{id:id[id.length-1]}))
             tag={NavLinkRRD}
             onClick={closeCollapse}
             activeClassName="active"
+            id='TooltipExample'
           >
             <i className={prop.icon} />
             {prop.name}
           </NavLink>
+          <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
+        {prop.name}
+      </Tooltip>
         </NavItem>
+        
       );
     });
   };
