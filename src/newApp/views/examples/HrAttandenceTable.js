@@ -66,7 +66,7 @@ const clickHandler=(e)=>{
                 </thead>
                  
                 <tbody>
-        {
+        {/* {
             getAttendence.map((atten,i)=>{
                 return (<>
                 <tr key={i}>
@@ -77,7 +77,7 @@ const clickHandler=(e)=>{
             </tr>
                 </>)
             })
-        }
+        } */}
                 </tbody>
               </Table>
              
