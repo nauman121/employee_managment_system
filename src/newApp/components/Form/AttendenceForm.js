@@ -48,7 +48,7 @@ const cancelHandler = () => {
   }
     return (
         <Form>
-        <div className='px-5' style={{ display: 'flex', flexDirection: 'row', gap: '3vw', marginLeft: '13vw' }}>
+        <div className='px-5' style={{ display: 'flex', flexDirection: 'row', gap: '3vw', marginLeft: '13vw',width:'50%',height:'50%',margin:'50px auto',padding:'50px auto',border:'2px solid black' }}>
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 2 }} className="form-input">
                     <input
