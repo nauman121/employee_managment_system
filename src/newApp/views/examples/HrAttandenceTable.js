@@ -26,7 +26,7 @@ const fetchData= async()=>{
   try{
 const attendenceData = await API.graphql(graphqlOperation(listAttendences));
 const Ldata = attendenceData.data.listAttendences.items;
-console.log(Ldata);
+console.log(Ldata.employee.full_name);
 setGetAttendence(Ldata);
   }
 catch(error){
@@ -72,18 +72,18 @@ const clickHandler=(e)=>{
                 </thead>
                  
                 <tbody>
-        {/* {
+        {
             getAttendence.map((atten,i)=>{
                 return (<>
                 <tr key={i}>
-                  <td style={{fontSize:'12px'}}>{atten.employee.full_name}</td>
+                  {/* <td style={{fontSize:'12px'}}>{atten.employee.full_name}</td> */}
                    <td style={{fontSize:'12px'}}>{atten.date}</td>
                     <td style={{fontSize:'12px'}}>{atten.in_time}</td>
                     <td style={{fontSize:'12px'}}>{atten.out_time}</td>
             </tr>
                 </>)
             })
-        } */}
+        }
                 </tbody>
               </Table>
              
