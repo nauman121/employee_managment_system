@@ -11,8 +11,6 @@ import {
   manager
 } from "../views/routes.js";
 
-
-
 const Admin = (props) => {
 
 const role=roleArr[roleArr.length-1];
@@ -56,7 +54,6 @@ if(role==="employee"){
     }
     return "Brand";
   };
-
   return (
     <>
       <Sidebar
@@ -81,8 +78,6 @@ if(role==="employee"){
     </>
   );
 }
-
-
 if(role==="lead"){
   const getRoutes = (lead) => {
     return lead.map((prop, key) => {
@@ -133,9 +128,6 @@ if(role==="lead"){
           {getRoutes(lead)}
           <Redirect from="*" to="/admin/index" />
         </Switch>
-        {/* <Container fluid>
-          <AdminFooter />
-        </Container> */}
       </div>
     </>
   );
@@ -245,9 +237,6 @@ if(role==="hr manager"){
           {getRoutes(manager)}
           <Redirect from="*" to="/admin/index" />
         </Switch>
-        {/* <Container fluid>
-          <AdminFooter />
-        </Container> */}
       </div>
     </>
   );
@@ -303,9 +292,6 @@ if(role==="hr manager"){
           {getRoutes(owner)}
           <Redirect from="*" to="/admin/index" />
         </Switch>
-        {/* <Container fluid>
-          <AdminFooter />
-        </Container> */}
       </div>
     </>
   );

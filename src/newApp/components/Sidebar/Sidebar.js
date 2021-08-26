@@ -8,17 +8,11 @@ import {API,graphqlOperation,Auth} from 'aws-amplify'
 import {useHistory} from 'react-router';
 // reactstrap components
 import {
-  // Button,
-  // Card,
-  // CardHeader,
-  // CardBody,
-  // CardTitle,
   Collapse,
   DropdownMenu,
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  // FormGroup,
   Form,
   Input,
   InputGroupAddon,
@@ -30,20 +24,16 @@ import {
   NavItem,
   NavLink,
   Nav,
-  // Progress,
-  // Table,
   Container,
   Row,
   Col,
-  Tooltip
 } from "reactstrap";
 
 // var ps;
 import {id} from '../../../App'
 
 const Sidebar = (props) => {
- const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggle = () => setTooltipOpen(!tooltipOpen);
+
   const history = useHistory();
 React.useEffect(()=>{
 getEmp();
@@ -76,16 +66,11 @@ const data=await API.graphql(graphqlOperation(getEmployee,{id:id[id.length-1]}))
             tag={NavLinkRRD}
             onClick={closeCollapse}
             activeClassName="active"
-            id='TooltipExample'
           >
             <i className={prop.icon} />
             {prop.name}
           </NavLink>
-          <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
-        {prop.name}
-      </Tooltip>
         </NavItem>
-        
       );
     });
   };
