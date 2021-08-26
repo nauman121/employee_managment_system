@@ -50,7 +50,7 @@ import HrAttendenceTable from './examples/HrAttandenceTable'
   {
     path: "/attendence",
     name: "Employees Attendence",
-    icon: "fa fa-eercast text-yellow",
+    icon: "fa fa-address-book text-yellow",
     component: HrAttendenceTable,
     layout: "/admin",
   }
