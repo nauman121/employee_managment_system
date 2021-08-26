@@ -29,13 +29,13 @@ type Employee @model {
   evaluation: [Evaluation] @connection(keyName: "byEmployee", fields: ["id"])
   warnings: [Warning] @connection(keyName: "byEmployee", fields: ["id"])
 }
-type Attendence @model @key(name: "byEmployee", fields: ["employee_id"]) {
+type Attendence @model @key(name: "byEmployee", fields: ["employee_name"]) {
   id: ID!
-  employee_id: ID!
+  employee_name: String!
   date: String!
   in_time: String!
   out_time: String!
-  employee: Employee @connection(fields: ["employee_id"])
+  employee: Employee @connection(fields: ["employee_name"])
 }
 type Leave @model @key(name: "byEmployee", fields: ["employee_id"]) {
   id: ID!
