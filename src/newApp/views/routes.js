@@ -29,28 +29,28 @@ import HrAttendenceTable from './examples/HrAttandenceTable'
   {
     path: "/index",
     name: "User Profile",
-    icon: "fa fa-users text-yellow",
+    icon: "ni ni-single-02 text-red",
     component: Profile,
     layout: "/admin",
   },
   {
     path: "/team",
     name: "Employees",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-users text-red",
     component: HrEmp,
     layout: "/admin",
   },
   {
     path: "/leaves",
     name: "Leaves",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-envelope-o text-red",
     component: LeaveTables,
     layout: "/admin",
   },
   {
     path: "/attendence",
     name: "Employees Attendence",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-check-square-o text-red",
     component: HrAttendenceTable,
     layout: "/admin",
   }
