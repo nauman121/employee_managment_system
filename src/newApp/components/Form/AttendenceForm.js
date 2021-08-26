@@ -47,7 +47,7 @@ const cancelHandler = () => {
     history.push('/admin/attendence');
   }
     return (
-        <Form style={{margin:'50% auto',padding:'50% auto',border:'2px solid black'}}>
+        <Form>
         <div className='px-5' style={{ display: 'flex', flexDirection: 'row', gap: '3vw', marginLeft: '13vw' }}>
                 <Form.Group as={Row}>
                   <Col sm={{ span: 10, offset: 2 }} className="form-input">
