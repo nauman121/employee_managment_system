@@ -107,9 +107,6 @@ history.push(`/warning/${id}`);
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row'}}>
                 <button class="btn btn-white mx-2" type="submit" id='TooltipExample' onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true" ></i></button>
-                   <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
-                   Add Employee
-                   </Tooltip>
               <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText >
@@ -240,6 +237,9 @@ history.push(`/warning/${id}`);
                      }
                 </tbody>
               </Table>
+              <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
+                Hello world!
+             </Tooltip>
               <CardFooter className="py-4">
               </CardFooter>
             </Card>
