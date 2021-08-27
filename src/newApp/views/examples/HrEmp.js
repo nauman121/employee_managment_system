@@ -1,7 +1,6 @@
 import React from "react";
 // reactstrap components
 import {
-  Badge,
   Card,
   CardHeader,
   CardFooter,
@@ -10,19 +9,13 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
   Table,
   Container,
   Row,
   InputGroupText,
-  Form,
   InputGroup,
   InputGroupAddon,
   Input,
-  FormGroup,
-  Tooltip
 } from "reactstrap";
 import 'react-bootstrap';
 // core components
@@ -32,10 +25,6 @@ import {listEmployees} from '../../../graphql/queries'
 import {useHistory} from 'react-router'
 
 const HrEmp = () => {
-
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggle = () => setTooltipOpen(!tooltipOpen);
-
 const [HrTeam,setHrTeam]=React.useState([]);
 const [searchTerm, setSearchTerm] = React.useState("");
  const [searchResults, setSearchResults] = React.useState([]);
@@ -106,7 +95,7 @@ history.push(`/warning/${id}`);
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row'}}>
-                <button class="btn btn-white mx-2" type="submit" id='TooltipExample' onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true" ></i></button>
+                <button class="btn btn-white mx-2" type="submit"  onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true" ></i></button>
               <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText >
@@ -237,9 +226,6 @@ history.push(`/warning/${id}`);
                      }
                 </tbody>
               </Table>
-              <Tooltip placement="right" isOpen={tooltipOpen} target="TooltipExample" toggle={toggle}>
-                Hello world!
-             </Tooltip>
               <CardFooter className="py-4">
               </CardFooter>
             </Card>
