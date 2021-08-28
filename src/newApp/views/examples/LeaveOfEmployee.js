@@ -16,6 +16,7 @@ import {
   Table,
   Container,
   Row,
+  UncontrolledTooltip
 } from "reactstrap";
 import 'react-bootstrap';
 // core components
@@ -57,7 +58,14 @@ React.useEffect(()=>{
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-0">
-             <button class="btn btn-white" type="submit" onClick={clickHandler}><i class="fa fa-plus" aria-hidden="true"></i></button>
+             <button id='button1' class="btn btn-white" type="submit" onClick={clickHandler}><i class="fa fa-plus" aria-hidden="true"></i></button>
+             <UncontrolledTooltip
+                  style={{ backgroundColor: "yellow",color:'black' }}
+                  placement="right"
+                  target="button1"
+                >
+                  Add new employee
+                </UncontrolledTooltip>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">

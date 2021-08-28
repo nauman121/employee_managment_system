@@ -41,7 +41,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 // core components
 
-
 const OwnerTeam = () => {
    const history=useHistory();
     const [lads,setLads]=React.useState('');
@@ -49,8 +48,6 @@ const OwnerTeam = () => {
 const userName=name[name.length-1];
 const [getEmployee,setGetEmployee]=React.useState([]);
  const [searchResults, setSearchResults] = React.useState([]);
-
-
 
 React.useEffect(()=>{
        fetchData();
@@ -82,7 +79,6 @@ setLads(res1.length);
 )
 setCanz(res2.length);
 },[getEmployee])
-
 
    const classes = useStyles();
   return (

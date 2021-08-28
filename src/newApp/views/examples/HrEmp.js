@@ -95,15 +95,16 @@ const HrEmp = () => {
                 style={{ display: "flex", flexDirection: "row" }}
               >
                 <button
+                  id="button1"
                   class="btn btn-white mx-2"
                   type="submit"
                   onClick={clickHandler}
                 >
-                  <i id="button1" class="fa fa-plus" aria-hidden="true"></i>
+                  <i  class="fa fa-plus" aria-hidden="true"></i>
                 </button>
                 <UncontrolledTooltip
                   style={{ backgroundColor: "yellow",color:'black' }}
-                  placement="top"
+                  placement="right"
                   target="button1"
                 >
                   Add new employee

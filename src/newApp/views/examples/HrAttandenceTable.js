@@ -11,7 +11,7 @@ import {
   InputGroupText,
   InputGroup,
   InputGroupAddon,
-  // UncontrolledTooltip,
+  UncontrolledTooltip,
 } from "reactstrap";
 import "react-bootstrap";
 // core components
@@ -54,12 +54,20 @@ const HrAttendenceTable = () => {
                 style={{ display: "flex", flexDirection: "row" }}
               >
                 <button
+                  id='button1'
                   class="btn btn-white mx-2"
                   type="submit"
                   onClick={clickHandler}
                 >
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
+                <UncontrolledTooltip
+                  style={{ backgroundColor: "yellow",color:'black' }}
+                  placement="right"
+                  target="button1"
+                >
+                  Add new employee
+                </UncontrolledTooltip>
                 <InputGroup
                   className="input-group-alternative"
                   style={{ width: "30vw", boxShadow: "1px 1px 2px lightGray" }}
