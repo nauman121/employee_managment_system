@@ -20,13 +20,12 @@ body {
   width: 100%;
   margin: 10% auto 10%;
 }
-
 #logo-div {
   width: 50%;
   margin: 0 auto;
 }
 .active {
-  background-color: lightyellow;
+  background-color: rgb(185, 185, 48);
 }
 
 #title-div {
