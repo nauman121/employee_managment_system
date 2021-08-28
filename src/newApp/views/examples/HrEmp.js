@@ -97,7 +97,7 @@ history.push(`/warning/${id}`);
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row'}}>
                 <button  class="btn btn-white mx-2" type="submit"  onClick={clickHandler}><i   id='button' class="fa fa-plus"  aria-hidden="true" ></i></button>
-                 <UncontrolledTooltip placement='right' target='button'>
+                 <UncontrolledTooltip style={{backgroundColor:'yellow'}} placement='right' target='button'>
                    Add new employee
                  </UncontrolledTooltip>
               <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
