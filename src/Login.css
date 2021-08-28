@@ -25,6 +25,9 @@ body {
   width: 50%;
   margin: 0 auto;
 }
+.active {
+  background-color: yellow;
+}
 
 #title-div {
   margin: 0 auto;

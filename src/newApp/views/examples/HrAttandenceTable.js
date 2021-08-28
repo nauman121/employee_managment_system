@@ -1,6 +1,7 @@
 import React from "react";
 import { API, graphqlOperation } from "aws-amplify";
 import { listAttendences } from "../../../graphql/queries";
+import '../../../Login.css'
 // reactstrap components
 import {
   Card,
