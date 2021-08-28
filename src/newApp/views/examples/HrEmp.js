@@ -99,12 +99,12 @@ const HrEmp = () => {
                   type="submit"
                   onClick={clickHandler}
                 >
-                  <i id="button" class="fa fa-plus" aria-hidden="true"></i>
+                  <i id="button1" class="fa fa-plus" aria-hidden="true"></i>
                 </button>
                 <UncontrolledTooltip
                   style={{ backgroundColor: "yellow",color:'black' }}
                   placement="top"
-                  target="button"
+                  target="button1"
                 >
                   Add new employee
                 </UncontrolledTooltip>
