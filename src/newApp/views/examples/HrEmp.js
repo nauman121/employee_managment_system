@@ -16,6 +16,7 @@ import {
   InputGroup,
   InputGroupAddon,
   Input,
+  UncontrolledTooltip
 } from "reactstrap";
 import 'react-bootstrap';
 // core components
@@ -95,7 +96,10 @@ history.push(`/warning/${id}`);
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row'}}>
-                <button class="btn btn-white mx-2" type="submit"  onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true" ></i></button>
+                <button id='button' class="btn btn-white mx-2" type="submit"  onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true" ></i></button>
+                 <UncontrolledTooltip placement='right' target='button'>
+                   Add new employee
+                 </UncontrolledTooltip>
               <InputGroup className="input-group-alternative" style={{width:'30vw',boxShadow:'1px 1px 2px lightGray'}}>
                 <InputGroupAddon addonType="prepend">
                   <InputGroupText >
