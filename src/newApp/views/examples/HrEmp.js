@@ -103,7 +103,7 @@ const HrEmp = () => {
                 </button>
                 <UncontrolledTooltip
                   style={{ backgroundColor: "yellow",color:'black' }}
-                  placement="right"
+                  placement="top"
                   target="button"
                 >
                   Add new employee
