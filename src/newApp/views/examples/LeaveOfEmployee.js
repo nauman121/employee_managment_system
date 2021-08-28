@@ -60,7 +60,7 @@ React.useEffect(()=>{
               <CardHeader className="border-0">
              <button id='button1' class="btn btn-white" type="submit" onClick={clickHandler}><i class="fa fa-plus" aria-hidden="true"></i></button>
              <UncontrolledTooltip
-                  style={{ backgroundColor: "yellow",color:'black' }}
+                  style={{ backgroundColor: "rgba(255, 255, 0, 0.5)",color:'black' }}
                   placement="right"
                   target="button1"
                 >
