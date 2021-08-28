@@ -63,7 +63,7 @@ const HrAttendenceTable = () => {
                   <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
                 <UncontrolledTooltip
-                  style={{ backgroundColor: "rgba(255, 255, 0, 0.5)",color:'black' }}
+                  style={{ backgroundColor: "rgba(255, 255, 0, 0.7)",color:'black' }}
                   placement="right"
                   target="button1"
                 >
@@ -90,7 +90,6 @@ const HrAttendenceTable = () => {
                     <th scope="col" />
                   </tr>
                 </thead>
-
                 <tbody>
                   {getAttendence.map((atten, i) => {
                     return (
