@@ -96,7 +96,7 @@ history.push(`/warning/${id}`);
           <div className="col">
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row'}}>
-                <button id='button' class="btn btn-white mx-2" type="submit"  onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true" ></i></button>
+                <button  class="btn btn-white mx-2" type="submit"  onClick={clickHandler}><i   id='button' class="fa fa-plus"  aria-hidden="true" ></i></button>
                  <UncontrolledTooltip placement='right' target='button'>
                    Add new employee
                  </UncontrolledTooltip>
