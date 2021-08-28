@@ -25,7 +25,7 @@ body {
   margin: 0 auto;
 }
 .active {
-  background-color: rgb(185, 185, 48);
+  background-color: rgba(255, 255, 0, 0.5);
 }
 
 #title-div {
