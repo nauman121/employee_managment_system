@@ -20,7 +20,7 @@ import HrAttendenceTable from './examples/HrAttandenceTable'
    {
     path: "/team",
     name: "Teams",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-users text-yellow",
     component: OwnerTeam,
     layout: "/admin",
   }
@@ -66,21 +66,21 @@ export var manager = [
   {
     path: "/team",
     name: "Employees",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-users text-yellow",
     component: Tables,
     layout: "/admin",
   },
   {
     path: "/leaves",
     name: "Leaves",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-envelope-open text-yellow",
     component: LeaveTables,
     layout: "/admin",
   },
   {
     path: "/attendence",
     name: "Employees Attendence",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-address-book text-yellow",
     component: HrAttendenceTable,
     layout: "/admin",
   }
@@ -96,14 +96,14 @@ export var emp = [
   {
     path: "/Empleaves",
     name: "My Leaves",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-envelope-open text-yellow",
     component: LeaveOfEmployee,
     layout: "/admin",
   },
   {
     path: "/attendence",
     name: "My Attendence",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-address-book text-yellow",
     component: AttendenceTable,
     layout: "/admin",
   }
@@ -119,14 +119,14 @@ export var lead = [
   {
     path: "/Empleaves",
     name: "My Leaves",
-    icon: "ni ni-folder-17 text-red",
+    icon: "fa fa-envelope-open text-yellow",
     component: LeaveOfEmployee,
     layout: "/admin",
   },
    {
     path: "/LeadEmpTable",
     name: "Employee Leaves",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "ni ni-bullet-list-67 text-yellow",
     component: LeaveTables,
     layout: "/admin",
   }
@@ -134,14 +134,14 @@ export var lead = [
    {
     path: "/team",
     name: "Team",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-users text-yellow",
     component: LeadEmp,
     layout: "/admin",
   },
   {
     path: "/attendence",
     name: "My Attendence",
-    icon: "ni ni-bullet-list-67 text-red",
+    icon: "fa fa-address-book text-yellow",
     component: AttendenceTable,
     layout: "/admin",
   }
