@@ -10,21 +10,10 @@ import {
   DropdownItem,
   UncontrolledDropdown,
   DropdownToggle,
-  Media,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-  // Progress,
   Table,
   Container,
   Row,
-  InputGroupText,
-  Form,
-  InputGroup,
-  InputGroupAddon,
-  Input,
-  FormGroup
-    // UncontrolledTooltip,
+  UncontrolledTooltip,
 } from "reactstrap";
 import 'react-bootstrap';
 // core components
@@ -72,7 +61,14 @@ const backHandler = ()=>{
              <h1 class='text-white ml-5 font-weight-bolder'>Job History</h1>
             <Card className="shadow">
               <CardHeader className="border-5" style={{display:'flex',flexDirection:'row',position:'relative'}}>
-                <button class="btn btn-white mx-2" type="submit" onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true"></i></button>
+                <button id='button1' class="btn btn-white mx-2" type="submit" onClick={clickHandler}><i class="fa fa-plus"  aria-hidden="true"></i></button>
+                <UncontrolledTooltip
+                  style={{ backgroundColor: "yellow",color:'black' }}
+                  placement="right"
+                  target="button1"
+                >
+                  Add new Job
+                </UncontrolledTooltip>
                  <button class="btn btn-primary mx-2" type="submit" style={{position:'absolute',right:'5px'}} onClick={backHandler}>Back</button>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>

@@ -64,7 +64,7 @@ React.useEffect(()=>{
                   placement="right"
                   target="button1"
                 >
-                  Add new employee
+                  Apply for leave
                 </UncontrolledTooltip>
               </CardHeader>
               <Table className="align-items-center table-flush" responsive>

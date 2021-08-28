@@ -66,7 +66,7 @@ const HrAttendenceTable = () => {
                   placement="right"
                   target="button1"
                 >
-                  Add new employee
+                  Add new attendence sheet
                 </UncontrolledTooltip>
                 <InputGroup
                   className="input-group-alternative"
