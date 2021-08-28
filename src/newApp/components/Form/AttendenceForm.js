@@ -56,7 +56,7 @@ function AttendenceForm() {
         style={{
           display: "flex",
           flexDirection: "row",
-          gap: "2vw",
+          gap: "3vw",
           marginLeft: "13vw",
           width: "50%",
           height: "40%",
@@ -65,11 +65,6 @@ function AttendenceForm() {
           border: "2px solid black",
         }}
       >
-        <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }} className="form-input">
-            <p>upload Attendence file here</p>
-          </Col>
-        </Form.Group>
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }} className="form-input">
             <input
