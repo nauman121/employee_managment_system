@@ -56,7 +56,7 @@ React.useEffect(()=>{
               <Table className="align-items-center table-flush" responsive>
                 <thead className="thead-light">
                   <tr>
-                    <th scope="col">Date</th>
+                    <th scope="col">Dattte</th>
                     <th scope="col">In Time</th>
                     <th scope="col">Out Time</th>
                     <th scope="col" />
